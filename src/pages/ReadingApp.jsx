@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, Outlet, useOutlet } from 'react-router-dom';
-import DesignIterations from '../components/DesignIterations';
 
 const featureLinks = [
   {
@@ -53,16 +52,9 @@ const ReadingApp = () => {
         </div>
       ) : (
         <div className="max-w-7xl mx-auto">
-          <section className="px-6 pb-12">
-            <h2 className="text-3xl font-semibold text-textPrimary mb-6">
-              Overall App Iterations
-            </h2>
-            <DesignIterations />
-          </section>
-
           <section className="px-6 py-12 border-t border-gray-200">
             <h2 className="text-3xl font-semibold text-textPrimary mb-8 text-center">
-              Detailed Feature Spotlights
+              Reading App Features
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {featureLinks.map((feature) => (

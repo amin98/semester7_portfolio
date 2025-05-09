@@ -37,73 +37,89 @@ const FeatureComponent = ({
                 key={index}
                 className="bg-white shadow-lg rounded-xl overflow-hidden border border-gray-200"
               >
-                <div className="p-6 sm:p-8">
-                  <h3 className="text-2xl font-medium text-primary mb-2">
-                    {version.versionName || `Version ${index + 1}`}
-                  </h3>
-                  {version.changesDescription && (
-                    <p className="text-textSecondary mb-6 italic">
-                      {version.changesDescription}
-                    </p>
-                  )}
-                </div>
-
-                {version.screenshotUrl && (
-                  <div className="bg-palette-softLight p-4 sm:p-6">
-                    <img
-                      src={version.screenshotUrl}
-                      alt={
-                        version.caption ||
-                        `Screenshot for ${
-                          version.versionName || `Version ${index + 1}`
-                        }`
-                      }
-                      className="w-full max-w-2xl mx-auto rounded-lg shadow-md border border-gray-300"
-                    />
-                    {version.caption && (
-                      <p className="text-center text-sm text-palette-softGray mt-3">
-                        {version.caption}
+                <div
+                  className={`p-6 sm:p-8 ${
+                    version.screenshotUrl ? 'md:flex md:gap-8 items-start' : ''
+                  }`}
+                >
+                  {/* Textual Content Column (Left) */}
+                  <div
+                    className={`${
+                      version.screenshotUrl ? 'md:w-2/3' : 'w-full'
+                    }`}
+                  >
+                    <h3 className="text-2xl font-medium text-primary mb-2">
+                      {version.versionName || `Version ${index + 1}`}
+                    </h3>
+                    {version.changesDescription && (
+                      <p className="text-textSecondary mb-6 italic">
+                        {version.changesDescription}
                       </p>
                     )}
-                  </div>
-                )}
 
-                <div className="p-6 sm:p-8">
-                  <div className="grid md:grid-cols-3 gap-6 text-sm">
-                    {version.researchInsight && (
-                      <div>
-                        <h4 className="font-semibold text-textPrimary mb-1">
-                          Research Insight:
-                        </h4>
-                        <p className="text-textSecondary">
-                          {version.researchInsight}
-                        </p>
+                    {/* Sub-sections: Research Insight, HMW, Learning Outcomes */}
+                    {(version.researchInsight ||
+                      version.hmwQuestion ||
+                      (version.learningOutcomes &&
+                        version.learningOutcomes.length > 0)) && (
+                      <div className="space-y-6 text-sm mt-6">
+                        {version.researchInsight && (
+                          <div>
+                            <h4 className="font-semibold text-textPrimary mb-1">
+                              Research Insight:
+                            </h4>
+                            <p className="text-textSecondary">
+                              {version.researchInsight}
+                            </p>
+                          </div>
+                        )}
+                        {version.hmwQuestion && (
+                          <div>
+                            <h4 className="font-semibold text-textPrimary mb-1">
+                              How Might We:
+                            </h4>
+                            <p className="text-textSecondary">
+                              {version.hmwQuestion}
+                            </p>
+                          </div>
+                        )}
+                        {version.learningOutcomes &&
+                          version.learningOutcomes.length > 0 && (
+                            <div>
+                              <h4 className="font-semibold text-textPrimary mb-1">
+                                Learning Outcomes:
+                              </h4>
+                              <ul className="list-disc list-inside text-textSecondary space-y-1">
+                                {version.learningOutcomes.map((lo, idx) => (
+                                  <li key={idx}>{lo}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
                       </div>
                     )}
-                    {version.hmwQuestion && (
-                      <div>
-                        <h4 className="font-semibold text-textPrimary mb-1">
-                          How Might We:
-                        </h4>
-                        <p className="text-textSecondary">
-                          {version.hmwQuestion}
-                        </p>
-                      </div>
-                    )}
-                    {version.learningOutcomes &&
-                      version.learningOutcomes.length > 0 && (
-                        <div>
-                          <h4 className="font-semibold text-textPrimary mb-1">
-                            Learning Outcomes:
-                          </h4>
-                          <ul className="list-disc list-inside text-textSecondary">
-                            {version.learningOutcomes.map((lo, idx) => (
-                              <li key={idx}>{lo}</li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
                   </div>
+
+                  {/* Screenshot Column (Right) */}
+                  {version.screenshotUrl && (
+                    <div className="md:w-1/3 mt-6 md:mt-0">
+                      <div className="bg-palette-softLight p-4 sm:p-6 rounded-lg flex flex-col items-center">
+                        <img
+                          src={version.screenshotUrl}
+                          alt={
+                            version.caption ||
+                            `Screenshot for ${version.versionName}`
+                          }
+                          className="max-h-[600px] w-auto object-contain mx-auto rounded-md shadow-sm border border-gray-300"
+                        />
+                        {/* {version.caption && (
+                          <p className="text-center text-sm text-palette-softGray mt-3 max-w-full">
+                            {version.caption}
+                          </p>
+                        )} */}
+                      </div>
+                    </div>
+                  )}
                 </div>
               </article>
             ))}
