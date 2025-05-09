@@ -26,9 +26,9 @@ const Planning = () => {
   ];
 
   return (
-    <div className="max-w-4xl mx-auto p-8">
-      <h1 className="text-h1 font-bold font-sans text-textPrimary mb-8 leading-tight">
-        Planning
+    <div className="max-w-4xl mx-auto p-6">
+      <h1 className="text-h2 font-bold font-sans text-textPrimary mb-6 leading-tight">
+        Project Planning
       </h1>
 
       <section id="trello-gallery" className="mb-12">

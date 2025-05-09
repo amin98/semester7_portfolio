@@ -1,13 +1,20 @@
 import React from 'react';
+// import Breadcrumbs from '../../components/Breadcrumbs';
 import DocLinkCard from '../../components/DocLinkCard';
 import evidence from '../../data/evidence';
 
 const Realisation = () => {
   const loId = 'realisation';
   const loEvidence = evidence[loId] || [];
+  // const breadcrumbItems = [
+  //   { label: 'Home', path: '/' },
+  //   { label: 'Learning Outcomes', path: '/learning-outcomes' },
+  //   { label: 'Realisation', path: '/lo/realisation' },
+  // ];
 
   return (
-    <div className="max-w-3xl mx-auto p-8">
+    <div className="max-w-3xl mx-auto p-6">
+      {/* <Breadcrumbs items={breadcrumbItems} /> */}
       <h1 className="text-h2 font-bold font-sans text-textPrimary mb-6 leading-tight">
         Learning Outcome: Realisation
       </h1>

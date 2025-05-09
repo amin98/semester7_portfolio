@@ -1,4 +1,5 @@
 import React from 'react';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 const VersionHistory = () => {
   // // TODO: Define version data (images, rationale)
@@ -16,10 +17,16 @@ const VersionHistory = () => {
     // ... more versions
   ];
 
+  const breadcrumbItems = [
+    { label: 'Home', path: '/' },
+    { label: 'Version History', path: '/version-history' },
+  ];
+
   return (
-    <div className="max-w-4xl mx-auto p-8">
-      <h1 className="text-h1 font-bold font-sans text-textPrimary mb-8 leading-tight">
-        Version History
+    <div className="max-w-3xl mx-auto p-6">
+      <Breadcrumbs items={breadcrumbItems} />
+      <h1 className="text-h2 font-bold font-sans text-textPrimary mb-6 leading-tight">
+        Portfolio Version History
       </h1>
       <div className="space-y-12">
         {versions.map((version, index) => (

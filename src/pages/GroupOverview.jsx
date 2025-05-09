@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // Placeholder data - you'll replace this with your actual progress for the group project
 const learningOutcomesData = [
@@ -90,13 +91,19 @@ const GroupOverview = () => {
         <h1 className="text-4xl font-bold text-textPrimary mb-3">
           Group Project Progress
         </h1>
-        <p className="text-lg text-textSecondary">
+        <p className="text-lg text-textSecondary mb-6">
           Overview of contributions and team achievements for the group project,
           organized by Learning Outcomes.
         </p>
+        <Link
+          to="/fitphone"
+          className="inline-block bg-primary text-white font-semibold px-cta-x py-3 rounded-lg hover:bg-opacity-90 transition-colors shadow-medium hover:shadow-large"
+        >
+          View FitPhone Case Study &rarr;
+        </Link>
       </header>
 
-      <div className="space-y-12">
+      <div className="space-y-12 mt-12">
         {learningOutcomesData.map((lo) => (
           <section key={lo.id} aria-labelledby={lo.id + '-heading'}>
             <div className="flex justify-between items-center mb-4 pb-2 border-b border-gray-200">

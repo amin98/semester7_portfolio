@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // Placeholder data - you'll replace this with your actual progress
 const learningOutcomesData = [
@@ -91,13 +92,19 @@ const IndividualOverview = () => {
         <h1 className="text-4xl font-bold text-textPrimary mb-3">
           Individual Project Progress
         </h1>
-        <p className="text-lg text-textSecondary">
+        <p className="text-lg text-textSecondary mb-6">
           Overview of achievements and ongoing work for the individual project,
           organized by Learning Outcomes.
         </p>
+        <Link
+          to="/reading-app"
+          className="inline-block bg-primary text-white font-semibold px-cta-x py-3 rounded-lg hover:bg-opacity-90 transition-colors shadow-medium hover:shadow-large"
+        >
+          View Reading App Case Study &rarr;
+        </Link>
       </header>
 
-      <div className="space-y-12">
+      <div className="space-y-12 mt-12">
         {learningOutcomesData.map((lo) => (
           <section key={lo.id} aria-labelledby={lo.id + '-heading'}>
             <div className="flex justify-between items-center mb-4 pb-2 border-b border-gray-200">

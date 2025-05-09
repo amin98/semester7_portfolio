@@ -7,7 +7,7 @@ const Advice = () => {
   const loEvidence = evidence[loId] || [];
 
   return (
-    <div className="max-w-3xl mx-auto p-8">
+    <div className="max-w-3xl mx-auto p-6">
       <h1 className="text-h2 font-bold font-sans text-textPrimary mb-6 leading-tight">
         Learning Outcome: Advice
       </h1>

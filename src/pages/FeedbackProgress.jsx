@@ -5,6 +5,8 @@ import React from 'react';
 // import feedbackMap from '../data/feedbackMap';
 
 const FeedbackProgress = () => {
+  // Removed breadcrumbItems definition
+
   // // TODO: Fetch feedback data (e.g., from a JSON file or Assessment 1 MD file)
   const feedbackItems = [
     {
@@ -33,9 +35,9 @@ const FeedbackProgress = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto p-8">
-      <h1 className="text-h1 font-bold font-sans text-textPrimary mb-8 leading-tight">
-        Feedback Progress (Assessment 1 → Now)
+    <div className="max-w-3xl mx-auto p-6">
+      <h1 className="text-h2 font-bold font-sans text-textPrimary mb-6 leading-tight">
+        Improvements & Feedback Loop
       </h1>
       <div className="space-y-8">
         {/* // TODO: Replace with actual TimelineItem components when ready */}
