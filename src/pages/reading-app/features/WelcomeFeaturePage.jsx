@@ -7,7 +7,7 @@ import v3_1 from '../../../assets/lo_images/readingapp/design/welcome/v3-1.png';
 import v3 from '../../../assets/lo_images/readingapp/design/welcome/v3.png';
 
 const welcomeFeatureData = {
-  featureTitle: 'Welcome Interface – First Impression & Engagement',
+  featureTitle: 'Welcome Interface',
   featureIntro:
     'The welcome screen is the first moment of contact. Its job is not just functional but emotional: to signal clarity, safety, and personality. My goal was to transform a generic start screen into something that sparks curiosity, hints at personalization, and feels thematically warm. This evolution reflects a balance between industry convention and creative differentiation.',
   designVersions: [
@@ -45,7 +45,7 @@ const welcomeFeatureData = {
         'Visual metaphors like doors, bookshelves, or character avatars help users orient themselves and feel emotionally grounded before they begin.',
       hmwQuestion:
         'How might we make the app’s value instantly recognizable as an “exploration” experience?',
-      learningOutcomes: ['Design', 'Realisation'],
+      learningOutcomes: ['Design'],
     },
     {
       versionName: 'Version 3.1 – Microcopy Refinement',

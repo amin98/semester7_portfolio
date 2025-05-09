@@ -11,7 +11,7 @@ const FeatureComponent = ({
   if (!featureTitle) return <p>Feature details are not available.</p>;
 
   return (
-    <div className="max-w-4xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+    <div className="max-w-5xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
       {/* Feature Title and Intro */}
       <header className="mb-12 border-b border-gray-200 pb-8">
         <h1 className="text-4xl font-bold tracking-tight text-textPrimary sm:text-5xl mb-4">
@@ -29,7 +29,7 @@ const FeatureComponent = ({
             id="design-versions-title"
             className="text-3xl font-semibold text-textPrimary mb-8"
           >
-            Design Evolution
+            Design Iterations
           </h2>
           <div className="space-y-16">
             {designVersions.map((version, index) => (
@@ -103,14 +103,14 @@ const FeatureComponent = ({
                   {/* Screenshot Column (Right) */}
                   {version.screenshotUrl && (
                     <div className="md:w-1/3 mt-6 md:mt-0">
-                      <div className="bg-palette-softLight p-4 sm:p-6 rounded-lg flex flex-col items-center">
+                      <div className="  p-4 sm:p-6 rounded-lg flex flex-col items-center">
                         <img
                           src={version.screenshotUrl}
                           alt={
                             version.caption ||
                             `Screenshot for ${version.versionName}`
                           }
-                          className="max-h-[600px] w-auto object-contain mx-auto rounded-md shadow-sm border border-gray-300"
+                          className="max-h-[500px] w-auto object-contain mx-auto rounded-2xl shadow-md"
                         />
                         {/* {version.caption && (
                           <p className="text-center text-sm text-palette-softGray mt-3 max-w-full">
