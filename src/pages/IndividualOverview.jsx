@@ -98,7 +98,7 @@ const IndividualOverview = () => {
         </p>
         <Link
           to="/reading-app"
-          className="inline-block bg-primary text-white font-semibold px-cta-x py-3 rounded-lg hover:bg-opacity-90 transition-colors shadow-medium hover:shadow-large"
+          className="inline-block bg-primary text-white font-semibold px-cta-x py-3 rounded-lg hover:bg-opacity-90 transition-colors"
         >
           View Reading App Case Study &rarr;
         </Link>

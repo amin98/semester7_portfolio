@@ -16,7 +16,7 @@ const Badge = ({ status }) => {
   }
   return (
     <span
-      className={`inline-block font-sans text-xs font-medium leading-base px-3 py-1 rounded-radius shadow-small ${bg} ${text}`}
+      className={`inline-block font-sans text-xs font-medium leading-base px-3 py-1 rounded-radius ${bg} ${text}`}
       style={{ minWidth: 32, textAlign: 'center' }}
     >
       {status}
@@ -25,4 +25,3 @@ const Badge = ({ status }) => {
 };
 
 export default Badge;
- 

@@ -32,7 +32,7 @@ const VersionHistory = () => {
         {versions.map((version, index) => (
           <div
             key={index}
-            className="p-8 border border-solid border-[#dee2e6] rounded-radius bg-background shadow-small"
+            className="p-8 border border-solid border-[#dee2e6] rounded-radius bg-background"
           >
             <h2 className="text-h3 font-semibold font-sans text-textPrimary mb-6">
               Version {index + 1} Changes

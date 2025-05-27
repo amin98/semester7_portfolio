@@ -49,7 +49,7 @@ const onboardingFeatureData = {
       learningOutcomes: ['Design'],
     },
     {
-      versionName: 'Version 4 – Gamified Vibe Picker (1/3)',
+      versionName: 'Version 4 – Gamified Vibe Picker',
       screenshotUrl: v4,
       caption: 'Selectable objects with visual progress tracking.',
       changesDescription:

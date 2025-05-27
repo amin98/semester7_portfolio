@@ -16,7 +16,7 @@ const LearningOutcomes = () => {
           <Link
             to={`/lo/${lo.id}`}
             key={lo.id}
-            className="block bg-background border border-solid border-[#dee2e6] rounded-radius shadow-small p-6 hover:shadow-medium transition focus:outline-none focus:ring-2 focus:ring-primary"
+            className="block bg-background border border-solid border-[#dee2e6] rounded-radius p-6 transition focus:outline-none focus:ring-2 focus:ring-primary"
             style={{ textDecoration: 'none' }}
           >
             <div className="flex justify-between items-start mb-4">

@@ -44,7 +44,7 @@ const FeedbackProgress = () => {
         {feedbackItems.map((item) => (
           <div
             key={item.id}
-            className="p-6 border border-solid border-[#dee2e6] rounded-radius bg-background shadow-small"
+            className="p-6 border border-solid border-[#dee2e6] rounded-radius bg-background"
           >
             <p className="font-semibold font-sans text-textPrimary mb-2">
               Feedback: "{item.text}"

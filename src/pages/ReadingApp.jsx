@@ -55,14 +55,14 @@ const ReadingApp = () => {
           <div className="max-w-7xl mx-auto">
             <section className="px-6 py-8 border-t border-gray-200">
               <h2 className="text-3xl font-semibold text-textPrimary mb-8 text-start">
-                Feature Designs
+                Designs
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {featureLinks.map((feature) => (
                   <Link
                     key={feature.path}
                     to={feature.path}
-                    className="block p-6 bg-white rounded-xl shadow-medium hover:shadow-large transition-shadow border border-gray-200 group"
+                    className="block p-6 bg-white rounded-xl transition-shadow border border-gray-200 group"
                   >
                     <h3 className="text-xl font-semibold text-primary mb-2 group-hover:underline">
                       {feature.label}
@@ -72,6 +72,28 @@ const ReadingApp = () => {
                     </p>
                   </Link>
                 ))}
+              </div>
+            </section>
+
+            {/* Implementation Section */}
+            <section className="px-6 py-8 border-t border-gray-200">
+              <h2 className="text-3xl font-semibold text-textPrimary mb-6 text-start">
+                Implementation
+              </h2>
+              <div className="bg-white p-8 rounded-xl border border-gray-200">
+                <p className="text-textSecondary mb-4">
+                  The Reading App was brought to life using a modern tech stack,
+                  focusing on a responsive user interface and efficient state
+                  management. Key aspects of the development include
+                  component-based architecture and integration with backend
+                  services for content delivery and user data.
+                </p>
+                <Link
+                  to="implementation"
+                  className="inline-block text-primary font-semibold hover:underline"
+                >
+                  View Detailed Implementation & Code  &rarr;
+                </Link>
               </div>
             </section>
           </div>

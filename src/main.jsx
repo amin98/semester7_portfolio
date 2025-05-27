@@ -27,6 +27,7 @@ import OnboardingFeaturePage from './pages/reading-app/features/OnboardingFeatur
 import PostOnboardingFeaturePage from './pages/reading-app/features/PostOnboardingFeaturePage';
 import ReadingInterfaceFeaturePage from './pages/reading-app/features/ReadingInterfaceFeaturePage';
 import WelcomeFeaturePage from './pages/reading-app/features/WelcomeFeaturePage';
+import Implementation from './pages/reading-app/Implementation';
 
 // Helper function for breadcrumbs (can be kept here or in a utils file)
 const createBreadcrumb = (label, path) => ({ label, path });
@@ -167,6 +168,17 @@ const router = createBrowserRouter([
                 createBreadcrumb(
                   'Home Interface Feature',
                   '/reading-app/features/home-interface'
+                ),
+            },
+          },
+          {
+            path: 'implementation',
+            element: <Implementation />,
+            handle: {
+              breadcrumb: () =>
+                createBreadcrumb(
+                  'Implementation Details',
+                  '/reading-app/implementation'
                 ),
             },
           },

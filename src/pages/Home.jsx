@@ -37,7 +37,7 @@ const Home = () => {
           <Link
             to={entry.link}
             key={entry.title}
-            className="block bg-white p-8 rounded-lg shadow-medium hover:shadow-large transition-shadow duration-300 border border-gray-200 group"
+            className="block bg-white p-8 rounded-lg transition-shadow duration-300 border border-gray-200 group"
           >
             <h2 className="text-2xl font-semibold text-textPrimary mb-3">
               {entry.title}

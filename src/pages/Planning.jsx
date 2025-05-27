@@ -36,7 +36,7 @@ const Planning = () => {
           Trello Board Snapshots
         </h2>
         {/* // TODO: Implement image gallery */}
-        <div className="p-8 border border-solid border-[#dee2e6] rounded-radius bg-light text-center text-textSecondary shadow-small">
+        <div className="p-8 border border-solid border-[#dee2e6] rounded-radius bg-light text-center text-textSecondary">
           *Trello Screenshot Gallery Placeholder*
         </div>
       </section>
@@ -46,7 +46,7 @@ const Planning = () => {
           Planned vs Actual
         </h2>
         <div className="overflow-x-auto">
-          <table className="min-w-full bg-background border border-solid border-[#dee2e6] rounded-radius shadow-small">
+          <table className="min-w-full bg-background border border-solid border-[#dee2e6] rounded-radius">
             <thead>
               <tr className="bg-light text-xs font-semibold uppercase tracking-wider text-textSecondary">
                 <th className="p-4 text-left">Task</th>

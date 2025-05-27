@@ -21,7 +21,7 @@ const FitPhone = () => {
             <h2 className="text-3xl font-semibold text-textPrimary text-center mb-8">
               Project Details & Iterations
             </h2>
-            <div className="bg-white p-8 rounded-xl shadow-large border border-gray-200">
+            <div className="bg-white p-8 rounded-xl border border-gray-200">
               <p className="text-textSecondary text-center">
                 Content for FitPhone's design iterations, technical
                 specifications, and other project-specific details will be
@@ -36,7 +36,7 @@ const FitPhone = () => {
             <h2 className="text-3xl font-semibold text-textPrimary text-center mb-8">
               Team Contributions & Learning
             </h2>
-            <div className="bg-white p-8 rounded-xl shadow-large border border-gray-200">
+            <div className="bg-white p-8 rounded-xl border border-gray-200">
               <p className="text-textSecondary text-center">
                 Details about individual contributions, team dynamics, and
                 learnings from the FitPhone project will be documented in this
