@@ -16,8 +16,8 @@ export default {
         info: '#17a2b8',
         light: '#f8f9fa',
         dark: '#343a40',
-        textPrimary: '#212529',
-        textSecondary: '#6c757d',
+        textPrimary: '#0a0b0d',
+        textSecondary: '#0a0b0d',
         background: '#ffffff', // You might want to name this 'white' or similar if 'background' conflicts/is confusing
         palette: {
           softLight: '#E7ECEF',
