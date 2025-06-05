@@ -4,28 +4,28 @@ import { Link, Outlet, useOutlet } from 'react-router-dom';
 const featureLinks = [
   {
     path: 'features/welcome',
-    label: 'Welcome & Initial Setup',
-    description: 'First impressions and app entry.',
+    label: 'Welcome & First Setup',
+    description: 'First look and how to enter app.',
   },
   {
     path: 'features/onboarding',
-    label: 'User Onboarding Flow',
-    description: "Personalizing the user's journey.",
+    label: 'User Start Flow',
+    description: "Making user's trip personal.",
   },
   {
     path: 'features/post-onboarding',
-    label: 'Post-Onboarding Experience',
-    description: 'Guiding users to initial success.',
+    label: 'After Start Experience',
+    description: 'Helping users to first success.',
   },
   {
     path: 'features/reading-interface',
-    label: 'Reading Interface & Controls',
-    description: 'The core reading experience.',
+    label: 'Reading Screen & Buttons',
+    description: 'The main reading part.',
   },
   {
     path: 'features/home-interface',
-    label: 'Home Screen / Dashboard',
-    description: 'Hub for user engagement.',
+    label: 'Home Screen / Main Page',
+    description: 'Place for user to do things.',
   },
 ];
 
@@ -43,11 +43,11 @@ const ReadingApp = () => {
           <div className="max-w-7xl mx-auto">
             <header className="py-4 px-6">
               <h1 className="text-4xl font-bold text-textPrimary mb-4">
-                ReadingApp Case Study
+                ReadingApp Case Study - How It Was Made
               </h1>
               <p className="text-textSecondary text-lg mb-10">
-                A deep dive into the design process and evolution of a mobile
-                reading application.
+                A close look at the design process and how a mobile reading
+                application changed over time.
               </p>
             </header>
           </div>
@@ -55,7 +55,7 @@ const ReadingApp = () => {
           <div className="max-w-7xl mx-auto">
             <section className="px-6 py-8 border-t border-gray-200">
               <h2 className="text-3xl font-semibold text-textPrimary mb-8 text-start">
-                Designs
+                Design Process
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {featureLinks.map((feature) => (
@@ -82,17 +82,17 @@ const ReadingApp = () => {
               </h2>
               <div className="bg-white p-8 rounded-xl border border-gray-200">
                 <p className="text-textSecondary mb-4">
-                  The Reading App was brought to life using a modern tech stack,
-                  focusing on a responsive user interface and efficient state
-                  management. Key aspects of the development include
-                  component-based architecture and integration with backend
-                  services for content delivery and user data.
+                  The Reading App was made using new tech stack, with focus on a
+                  good user interface and good state management. Important parts
+                  of the development are component-based way of building and
+                  connecting with backend services for story content and user
+                  data.
                 </p>
                 <Link
                   to="implementation"
                   className="inline-block text-primary font-semibold hover:underline"
                 >
-                  View Detailed Implementation & Code  &rarr;
+                  See Details of Building & Code &rarr;
                 </Link>
               </div>
             </section>

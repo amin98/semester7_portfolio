@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import demoVideo from '../../assets/videos/demo_video.mp4';
 import swiftLogo from '../../assets/swift.png';
 import swiftuiLogo from '../../assets/swiftui.png';
+import demoVideo from '../../assets/videos/demo_video.mp4';
 import xcodeLogo from '../../assets/xcode.png';
 
 const Implementation = () => {
@@ -9,65 +9,63 @@ const Implementation = () => {
     <div className="p-6 bg-background min-h-screen">
       <header className="mb-10">
         <h1 className="text-4xl font-bold text-textPrimary mb-3">
-          Implementation & Realization
+          How I Made and Built It
         </h1>
         <p className="text-lg text-textSecondary mb-6">
-          This section details the technical realization of the Reading App,
-          including the development process, technology stack, and links to the
-          source code. All choices are motivated based on the goals of the app,
-          learning outcomes, and project constraints.
+          Here I show how I built the Reading App—what tools I picked, steps I
+          did for development, and how all parts work together. You can look at
+          the code link below to see every change and detail.
         </p>
       </header>
 
       <section className="mb-12">
-  <h2 className="text-3xl font-semibold text-textPrimary mb-6">
-    Application Showcase
-  </h2>
-  <div className="bg-white p-8 rounded-xl border border-gray-200 mb-8">
-    <div className="flex flex-col justify-between lg:flex-row ">
-      {/* Left: Text & Bullet List */}
-      <div className=" space-y-4">
-        <p className="text-textSecondary">
-          The Reading App is developed natively in Swift and SwiftUI, targeting iOS devices.
-          It currently includes a complete onboarding flow (age gate, personality quiz, genre preferences),
-          a dynamic reading interface, and a prototype recommendation engine.
-        </p>
-        <ul className="list-disc list-inside text-textSecondary space-y-2">
-          <li>
-            <strong>Onboarding:</strong> Personalized entry using BFI-10
-            personality test and genre selection.
-          </li>
-          <li>
-            <strong>Reader UI:</strong> Minimalist, distraction-free reader
-            with font scaling, progress tracking, and haptics.
-          </li>
-          <li>
-            <strong>Gamification:</strong> Streak system, subtle animations,
-            and virtual rewards.
-          </li>
-        </ul>
-      </div>
+        <h2 className="text-3xl font-semibold text-textPrimary mb-6">
+          Showing the App
+        </h2>
+        <div className="bg-white p-8 rounded-xl border border-gray-200 mb-8">
+          <div className="flex flex-col justify-between lg:flex-row ">
+            {/* Left: Text & Bullet List */}
+            <div className=" space-y-4">
+              <p className="text-textSecondary">
+                I made this as a native iOS app with Swift and SwiftUI to make
+                it fast and smooth. You will see a full onboarding flow, a
+                reading screen with no distractions, and a test recommendation
+                engine working.
+              </p>
+              <ul className="list-disc list-inside text-textSecondary space-y-2">
+                <li>
+                  <strong>Onboarding:</strong> Personal start using BFI-10
+                  personality test and choosing genres.
+                </li>
+                <li>
+                  <strong>Reader UI:</strong> Simple, no-distraction reader with
+                  font size changing, progress shown, and haptics.
+                </li>
+                <li>
+                  <strong>Gamification:</strong> Streak system, small
+                  animations, and virtual rewards.
+                </li>
+              </ul>
+            </div>
 
-      {/* Right: Embedded Video */}
-      <div className="mt-6 lg:mt-0 lg:w-1/2 flex justify-center items-center">
-        <video
-          controls
-          className="w-full max-w-lg rounded-lg shadow-md"
-          src={demoVideo}
-          type="video/mp4"
-        >
-          Your browser does not support the video tag.
-        </video>
-      </div>
-    </div>
-
-  </div>
-</section>
-
+            {/* Right: Embedded Video */}
+            <div className="mt-6 lg:mt-0 lg:w-1/2 flex justify-center items-center">
+              <video
+                controls
+                className="w-full max-w-lg rounded-lg shadow-md"
+                src={demoVideo}
+                type="video/mp4"
+              >
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className="mb-12">
         <h2 className="text-3xl font-semibold text-textPrimary mb-6">
-          Development Process & Technologies
+          How I Developed It & What Tech I Used
         </h2>
         <div className="flex bg-white p-8 rounded-xl border border-gray-200">
           <div className="w-2/3 ">
@@ -86,7 +84,7 @@ const Implementation = () => {
                 <code>spring()</code>, <code>matchedGeometryEffect</code>
               </li>
               <li>
-                <strong>Persistence:</strong> UserDefaults (iCloud planned)
+                <strong>Persistence:</strong> UserDefaults (iCloud is planned)
               </li>
               <li>
                 <strong>Development Tools:</strong> Xcode 16, SF Symbols, Git
@@ -95,10 +93,9 @@ const Implementation = () => {
             </ul>
 
             <p className="text-textSecondary mt-4">
-              Focusing exclusively on iOS using SwiftUI allowed me to prioritize
-              fluid interactions, tactile feedback, and high-fidelity animation
-              support — all critical to delivering the gamified, immersive
-              experience required by the concept.
+              Choosing SwiftUI let me focus on smooth animations and haptic
+              feedback without thinking about other platforms. It helped me
+              finish a nice, fast experience in short time.
             </p>
           </div>
           <div className="flex flex-col w-1/3 gap-10 justify-center items-center mb-6">
@@ -117,59 +114,55 @@ const Implementation = () => {
 
       <section className="mb-12">
         <h2 className="text-3xl font-semibold text-textPrimary mb-6">
-          Why Swift + SwiftUI?
+          Why I Use Swift + SwiftUI?
         </h2>
         <div className="bg-white p-8 rounded-xl border border-gray-200 text-textSecondary space-y-4">
           <p>
-            Choosing Swift and SwiftUI for this project was a strategic decision
-            based on both technical and experience-driven factors:
+            To choose Swift and SwiftUI for this project was a careful decision
+            for technical and user experience reasons:
           </p>
           <ul className="list-disc list-inside space-y-2">
             <li>
-              <strong>High-fidelity animations:</strong> Native APIs like{' '}
+              <strong>High-quality animations:</strong> Native APIs like{' '}
               <code>withAnimation</code>, <code>matchedGeometryEffect</code>,
-              and <code>spring()</code> provide smooth, responsive gamification
-              elements.
+              and <code>spring()</code> give smooth, quick gamification parts.
             </li>
             <li>
-              <strong>Haptic feedback:</strong> Core Haptics integration
-              delivers tactile, low-latency responses to user actions like
-              streaks and milestone completions.
+              <strong>Haptic feedback:</strong> Core Haptics gives touch
+              feedback fast for user actions like streaks and finishing
+              milestones.
             </li>
             <li>
-              <strong>iOS-exclusive features:</strong> Native access to GameKit,
-              accessibility tools, and Core Animation deepen the user
-              experience.
+              <strong>iOS-only features:</strong> Native access to GameKit,
+              accessibility tools, and Core Animation make user experience
+              deeper.
             </li>
             <li>
-              <strong>Target audience fit:</strong> Dutch youth aged 12–25
-              predominantly use iOS devices, making Swift the pragmatic starting
-              point for validation.
+              <strong>Fits target users:</strong> Dutch young people age 12–25
+              mostly use iOS devices, so Swift is a good start for checking
+              ideas.
             </li>
             <li>
-              <strong>Faster polish:</strong> Native focus supports a faster
-              feedback loop and cleaner build quality — critical in a
-              semester-long development window.
+              <strong>Faster to make it good:</strong> Focusing on native helps
+              with faster feedback and cleaner build, which is very important in
+              a semester project.
             </li>
           </ul>
           <p>
-            These reasons align strongly with the Learning Outcomes related to
-            design justification, realization quality, and managing complexity
-            in smart-mobile contexts.
+            All these choices connect directly to our Learning Outcomes: clear
+            design reasons, ready-for-production implementation, and best
+            practices for smart-mobile.
           </p>
         </div>
       </section>
 
       <section>
         <h2 className="text-3xl font-semibold text-textPrimary mb-6">
-          GitHub Repository
+          GitHub Code Place
         </h2>
         <div className="bg-white p-8 rounded-xl border border-gray-200 text-center">
           <p className="text-textSecondary mb-4">
-            The complete source code for the Reading App project is available on
-            GitHub. The commit history reflects all development iterations and
-            implementation phases. A downloadable build or TestFlight link will
-            be provided soon.
+            Take a look at the Reading App on GitHub.
           </p>
           <a
             href="https://github.com/amin98/readingapp"
@@ -177,14 +170,14 @@ const Implementation = () => {
             rel="noopener noreferrer"
             className="inline-block bg-primary text-white font-semibold px-8 py-3 rounded-lg hover:bg-opacity-90 transition-colors text-lg"
           >
-            View on GitHub
+            See on GitHub
           </a>
         </div>
       </section>
 
       <div className="mt-12 text-center">
         <Link to="/reading-app" className="text-primary hover:underline">
-          &larr; Back to Reading App Case Study Overview
+          &larr; Go Back to Reading App Case Study Overview
         </Link>
       </div>
     </div>

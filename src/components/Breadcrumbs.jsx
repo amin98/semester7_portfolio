@@ -7,7 +7,7 @@ const Breadcrumbs = ({ items }) => {
   }
 
   return (
-    <nav aria-label="Breadcrumb" className="mb-6 text-sm">
+    <nav aria-label="Breadcrumb" className=" text-base">
       <ol className="flex items-center space-x-2 text-textSecondary">
         {items.map((item, index) => (
           <li key={item.path || index} className="flex items-center">

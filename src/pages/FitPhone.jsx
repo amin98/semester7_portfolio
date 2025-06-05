@@ -1,51 +1,94 @@
 import React from 'react';
-// import DesignIterations from '../components/DesignIterations';
+import { Link, Outlet, useOutlet } from 'react-router-dom';
+
+const fitPhoneSections = [
+  {
+    path: 'brainstorming',
+    label: 'Ideas & Study',
+    description: 'First ideas, user study, and user stories',
+  },
+  {
+    path: 'design',
+    label: 'Design Steps',
+    description: 'Wireframes, mockups, and how visual design was made',
+  },
+  {
+    path: 'prototype-testing',
+    label: 'Testing Prototypes',
+    description: 'Usability tests and getting feedback',
+  },
+  {
+    path: 'feedback-implementation',
+    label: 'Using Feedback',
+    description: 'Putting user and team feedback into designs',
+  },
+  {
+    path: 'realization',
+    label: 'Making & Coding',
+    description: 'How it was built and look at codebase',
+  },
+  {
+    path: 'meetings',
+    label: 'Meetings & Teamwork',
+    description: 'Sprint plans, standups, and notes from retrospectives',
+  },
+  {
+    path: 'way-of-working',
+    label: 'How We Worked (Agile)',
+    description: 'Our Agile way, Trello use, and tracking tasks',
+  },
+];
 
 const FitPhone = () => {
+  const outlet = useOutlet();
+
   return (
-    <div className="min-h-screen bg-background p-6">
-      <div className="max-w-7xl mx-auto">
-        <header className="py-header-y px-6 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-textPrimary mb-4">
-            FitPhone Case Study
-          </h1>
-          <p className="text-lg md:text-xl text-textSecondary max-w-3xl mx-auto">
-            A comprehensive look into the FitPhone group project, detailing our
-            process, collaboration, and outcomes.
-          </p>
-        </header>
-
-        <main className="px-6 pb-12">
-          {/* Placeholder for FitPhone specific content */}
-          <section className="py-12">
-            <h2 className="text-3xl font-semibold text-textPrimary text-center mb-8">
-              Project Details & Iterations
-            </h2>
-            <div className="bg-white p-8 rounded-xl border border-gray-200">
-              <p className="text-textSecondary text-center">
-                Content for FitPhone's design iterations, technical
-                specifications, and other project-specific details will be
-                showcased here. You can integrate a component similar to
-                'DesignIterations.jsx' tailored for FitPhone.
+    <div className="min-h-screen bg-background">
+      {outlet ? (
+        // If there is a nested route active, render it here
+        <div className="max-w-7xl mx-auto px-6 py-8">
+          <Outlet />
+        </div>
+      ) : (
+        // Landing page with overview and section links
+        <div className="min-h-screen bg-background p-6">
+          <div className="max-w-7xl mx-auto">
+            <header className="py-header-y px-6 text-center">
+              <h1 className="text-4xl md:text-5xl font-bold text-textPrimary mb-4">
+                FitPhone Case Study
+              </h1>
+              <p className="text-lg md:text-xl text-textSecondary max-w-3xl mx-auto">
+                A look into the FitPhone group project, showing the process,
+                teamwork, and what we made.
               </p>
-              {/* Example: <DesignIterations projectData={fitPhoneData} /> */}
-            </div>
-          </section>
+            </header>
 
-          <section className="py-12">
-            <h2 className="text-3xl font-semibold text-textPrimary text-center mb-8">
-              Team Contributions & Learning
-            </h2>
-            <div className="bg-white p-8 rounded-xl border border-gray-200">
-              <p className="text-textSecondary text-center">
-                Details about individual contributions, team dynamics, and
-                learnings from the FitPhone project will be documented in this
-                section.
-              </p>
-            </div>
-          </section>
-        </main>
-      </div>
+            <main className="px-6 pb-12">
+              <section className="px-6 py-8 border-t border-gray-200">
+                <h2 className="text-3xl font-semibold text-textPrimary mb-8 text-start">
+                  Parts of Case Study
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {fitPhoneSections.map((section) => (
+                    <Link
+                      key={section.path}
+                      to={section.path}
+                      className="block p-6 bg-white rounded-xl transition-shadow border border-gray-200 group hover:shadow-lg"
+                    >
+                      <h3 className="text-xl font-semibold text-primary mb-2 group-hover:underline">
+                        {section.label}
+                      </h3>
+                      <p className="text-sm text-textSecondary">
+                        {section.description}
+                      </p>
+                    </Link>
+                  ))}
+                </div>
+              </section>
+            </main>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

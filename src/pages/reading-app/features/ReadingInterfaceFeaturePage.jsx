@@ -1,58 +1,63 @@
+// src/pages/reading-app/features/ReadingInterfaceFeaturePage.jsx
 import React from 'react';
 import FeatureComponent from '../../../components/FeatureComponent';
 
 import v1 from '../../../assets/lo_images/readingapp/design/reading_interface/v1.png';
-import v2 from '../../../assets/lo_images/readingapp/design/reading_interface/v2.png';
 import v2_1 from '../../../assets/lo_images/readingapp/design/reading_interface/v2-1.png';
+import v2 from '../../../assets/lo_images/readingapp/design/reading_interface/v2.png';
 
 const readingInterfaceFeatureData = {
-  featureTitle: 'Reading Interface – Immersion & Custom Control',
+  featureTitle: 'Reading Screen – Focus & Gentle Nudges',
   featureIntro:
-    "This is the heart of the app: where users engage with stories. The reading interface needed to feel immersive but also responsive to each user's unique preferences and goals. I explored how to balance focused reading, progression indicators, and in-context feedback without overwhelming the screen. Visual hierarchy, font readability, and minimal distraction were top priorities. Later iterations emphasized gamified progression and contextual guidance.",
+    'This screen is where users get into stories. I made it simple so users can read with no distractions, then added small hints to invite them to go on. My goal was a clean layout for deep focus, with just enough push to keep them reading without taking them out of the story.',
+
   designVersions: [
     {
-      versionName: 'Version 1 – Minimalist Reader Layout',
+      versionName: 'Version 1 – Basic Simple Reader',
       screenshotUrl: v1,
-      caption: 'Clean reading view with limited distractions.',
+      caption: 'Simple view that shows only text and basic page buttons.',
       changesDescription:
-        'This early layout introduced a traditional chapter-based reader with a clean serif font and basic navigation bar. It set the tone for quiet focus, minimizing clutter and reserving interactivity for page transitions and navigation.',
+        'First, I set up a normal chapter reader with a serif font and good line space. Only needed navigation buttons show. The goal was to take out everything extra so readers can focus on text.',
       researchInsight:
-        'Reader engagement improves when interfaces minimize cognitive noise. Serif fonts and line spacing boost readability for longer sessions.',
+        'I learned that less things on screen and a clear serif font help readers stay in for longer times.',
       hmwQuestion:
-        'How might we design a reading screen that invites deep focus without feeling sterile?',
+        'How can we make readers feel welcome in a calm reading space that still looks nice?',
       learningOutcomes: ['Design'],
     },
     {
-      versionName: 'Version 2 – Interactive Progress & Motivation',
+      versionName: 'Version 2 – Light Progress & Motivation',
       screenshotUrl: v2,
-      caption: 'Visual progress and CTA button added for motivational pacing.',
+      caption: 'Added a thin progress bar and a small "Continue" button.',
       changesDescription:
-        'A visible progress bar was introduced alongside motivational icons (e.g., a lightning bolt) to indicate energy or streaks. A persistent “Continue” button guided progression. This design bridges reading with the app’s gamified feedback system.',
+        'Next, I put in a thin progress bar at the top and a tiny lightning icon to show energy or streaks. The "Continue" button stays there so going between chapters feels easy, giving a light game touch without distraction.',
       researchInsight:
-        'Subtle gamification through progress indicators (similar to language apps) increases completion and session duration.',
+        'I read that small progress bars can help more people finish, while keeping readers in flow, like in learning apps.',
       hmwQuestion:
-        'How might we keep users motivated mid-story without distracting them from the narrative?',
+        'How can we gently ask readers to finish a chapter without breaking their focus?',
       learningOutcomes: ['Design', 'Advice'],
     },
     {
-      versionName: 'Version 2.1 – Enhanced Clarity & Navigation Feedback',
+      versionName: 'Version 2.1 – Clearer Navigation Signs',
       screenshotUrl: v2_1,
-      caption: 'Added visual cue for chapter navigation and refined CTA visibility.',
+      caption: 'Chapter marks, bigger "Continue" button, and more spacing.',
       changesDescription:
-        'Improved accessibility and visibility of UI elements like bookmarks, chapter counts, and CTA button size. Ensured consistent contrast and spacing across reading states. Light background themes were iterated for comfort and focus.',
+        'I made the "Continue" button easier to see, added small marks for chapters, and put more space around things. I tested light backgrounds to find a good mix of comfort and easy reading.',
       researchInsight:
-        'Teens and young adults prefer interfaces with feedback and progression that feels lightweight and contextual rather than gamified-heavy.',
+        'Early testers liked to know exactly where they are in a story. Clear chapter numbers and a clear CTA button kept them from feeling lost.',
       hmwQuestion:
-        'How might we balance immersion with UX clarity in a reading experience?',
+        'How do we make a look that is free of distractions but gives enough signs so readers always know their progress?',
       learningOutcomes: ['Design', 'Professional Skills'],
     },
   ],
+
   reflectionText:
-    "Designing this feature helped me understand that reading UI isn't just about typography and spacing — it's about rhythm. The user’s experience flows like a narrative, and any interface element should feel like a natural beat in that rhythm. Early versions were too static. By introducing progression visuals, motivational triggers, and responsive layout, I learned how small changes can significantly affect engagement without sacrificing immersion.",
+    'Working on this reader, I learned that small layout choices—like padding or button size—can really affect focus. My first version felt still. By adding light progress signs and clearer navigation hints, it became more alive without breaking the story feel.',
+
   implementationPlanText:
-    'The reader will be built in Flutter using PageView for horizontal or vertical scroll handling. Progress bars are linked to chapter index via a stateful widget. Theme toggles will control dynamic styles using provider. Font size and layout settings will be saved in local preferences. A11Y and contrast tests will be applied for WCAG compliance. Estimated time: 2–3 days.',
+    'I will build this screen in Flutter using PageView for easy horizontal swipes. A stateful widget will keep track of the current chapter number and update the progress bar. Theme and font settings will be saved in user preferences. I plan to run tests for easy reading (contrast, font size) on many devices. I think it will take 2–3 days for final polish and testing.',
+
   nextStepsText:
-    "Next, I’ll prototype a focus mode (hide all UI chrome after delay) and test reading comfort in short vs. long sessions. I also want to validate font options and theme toggles via peer feedback from test readers aged 12–25.",
+    'Next, I want to try a "focus mode" that hides UI things after a few seconds of reading, then shows them again on tap. I also plan to get peer feedback on font choices and theme options (light vs. dark) to make sure it is comfortable for long reading times.',
 };
 
 const ReadingInterfaceFeaturePage = () => {

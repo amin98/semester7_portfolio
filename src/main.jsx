@@ -3,31 +3,44 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
 
-// Import Page Components
-import Layout from './components/Layout'; // Layout will be the main element for parent route
-import FeedbackProgress from './pages/FeedbackProgress';
-import FitPhone from './pages/FitPhone';
-import GroupOverview from './pages/GroupOverview';
+
+// Layout & Shared Pages
+import Layout from './components/Layout';
 import Home from './pages/Home';
-import IndividualOverview from './pages/IndividualOverview';
+import FeedbackProgress from './pages/FeedbackProgress';
+import VersionHistory from './pages/VersionHistory';
+import Planning from './pages/Planning';
 import LearningOutcomes from './pages/LearningOutcomes';
-import Advice from './pages/lo/Advice';
 import Analysis from './pages/lo/Analysis';
+import Advice from './pages/lo/Advice';
 import Design from './pages/lo/Design';
+import Realisation from './pages/lo/Realisation';
 import ManageControl from './pages/lo/ManageControl';
 import Professional from './pages/lo/Professional';
-import Realisation from './pages/lo/Realisation';
-import Planning from './pages/Planning';
-import ReadingApp from './pages/ReadingApp';
-import VersionHistory from './pages/VersionHistory';
 
-// Import new specific feature pages
-import HomeInterfaceFeaturePage from './pages/reading-app/features/HomeInterfaceFeaturePage';
+// Individual Project (Reading App)
+import ReadingApp from './pages/ReadingApp';
+import WelcomeFeaturePage from './pages/reading-app/features/WelcomeFeaturePage';
 import OnboardingFeaturePage from './pages/reading-app/features/OnboardingFeaturePage';
 import PostOnboardingFeaturePage from './pages/reading-app/features/PostOnboardingFeaturePage';
 import ReadingInterfaceFeaturePage from './pages/reading-app/features/ReadingInterfaceFeaturePage';
-import WelcomeFeaturePage from './pages/reading-app/features/WelcomeFeaturePage';
+import HomeInterfaceFeaturePage from './pages/reading-app/features/HomeInterfaceFeaturePage';
 import Implementation from './pages/reading-app/Implementation';
+import IndividualOverview from './pages/IndividualOverview';
+
+// Group Overview (if you still want a landing page)
+/** (You can keep this or remove if you only want /fitphone) */
+import GroupOverview from './pages/GroupOverview';
+
+// **FitPhone Case Study (Group Project)**
+import FitPhone from './pages/FitPhone';
+import Brainstorming from './pages/fitphone/Brainstorming';
+import DesignIterations from './pages/fitphone/DesignIterations';
+import PrototypeTesting from './pages/fitphone/PrototypeTesting';
+import FeedbackImplementation from './pages/fitphone/FeedbackImplementation';
+import Realization from './pages/fitphone/Realization';
+import Meetings from './pages/fitphone/Meetings';
+import WayOfWorking from './pages/fitphone/WayOfWorking';
 
 // Helper function for breadcrumbs (can be kept here or in a utils file)
 const createBreadcrumb = (label, path) => ({ label, path });
@@ -36,10 +49,13 @@ const router = createBrowserRouter(
   [
     {
       path: '/',
-      element: <Layout />, // Layout component wraps all pages
-      handle: { breadcrumb: () => createBreadcrumb('Home', '/') }, // Home breadcrumb at root
+      element: <Layout />,
+      handle: { breadcrumb: () => createBreadcrumb('Home', '/') },
       children: [
-        { index: true, element: <Home /> }, // Index route for Home page
+        // ─────────── Home ───────────
+        { index: true, element: <Home /> },
+
+        // ─────────── Learning Outcomes ───────────
         {
           path: 'learning-outcomes',
           element: <LearningOutcomes />,
@@ -48,51 +64,14 @@ const router = createBrowserRouter(
               createBreadcrumb('Learning Outcomes', '/learning-outcomes'),
           },
         },
-        {
-          path: 'lo/analysis',
-          element: <Analysis />,
-          handle: {
-            breadcrumb: () => createBreadcrumb('Analysis', '/lo/analysis'),
-          },
-        },
-        {
-          path: 'lo/advice',
-          element: <Advice />,
-          handle: {
-            breadcrumb: () => createBreadcrumb('Advice', '/lo/advice'),
-          },
-        },
-        {
-          path: 'lo/design',
-          element: <Design />,
-          handle: {
-            breadcrumb: () => createBreadcrumb('Design', '/lo/design'),
-          },
-        },
-        {
-          path: 'lo/realisation',
-          element: <Realisation />,
-          handle: {
-            breadcrumb: () =>
-              createBreadcrumb('Realisation', '/lo/realisation'),
-          },
-        },
-        {
-          path: 'lo/manage-control',
-          element: <ManageControl />,
-          handle: {
-            breadcrumb: () =>
-              createBreadcrumb('Manage & Control', '/lo/manage-control'),
-          },
-        },
-        {
-          path: 'lo/professional',
-          element: <Professional />,
-          handle: {
-            breadcrumb: () =>
-              createBreadcrumb('Professional Skills', '/lo/professional'),
-          },
-        },
+        { path: 'lo/analysis', element: <Analysis /> },
+        { path: 'lo/advice', element: <Advice /> },
+        { path: 'lo/design', element: <Design /> },
+        { path: 'lo/realisation', element: <Realisation /> },
+        { path: 'lo/manage-control', element: <ManageControl /> },
+        { path: 'lo/professional', element: <Professional /> },
+
+        // ─────────── Feedback & Versions ───────────
         {
           path: 'feedback-progress',
           element: <FeedbackProgress />,
@@ -109,6 +88,8 @@ const router = createBrowserRouter(
               createBreadcrumb('Version History', '/version-history'),
           },
         },
+
+        // ─────────── Planning (for both projects) ───────────
         {
           path: 'planning',
           element: <Planning />,
@@ -116,6 +97,8 @@ const router = createBrowserRouter(
             breadcrumb: () => createBreadcrumb('Planning', '/planning'),
           },
         },
+
+        // ─────────── Reading App (Individual) ───────────
         {
           path: 'reading-app',
           element: <ReadingApp />,
@@ -125,7 +108,7 @@ const router = createBrowserRouter(
           },
           children: [
             {
-              path: 'features/welcome', // Static path
+              path: 'features/welcome',
               element: <WelcomeFeaturePage />,
               handle: {
                 breadcrumb: () =>
@@ -192,6 +175,8 @@ const router = createBrowserRouter(
             },
           ],
         },
+
+        // ─────────── Individual Overview (if you want a dashboard page) ───────────
         {
           path: 'individual',
           element: <IndividualOverview />,
@@ -200,6 +185,8 @@ const router = createBrowserRouter(
               createBreadcrumb('Individual Project', '/individual'),
           },
         },
+
+        // ─────────── Group Overview (optional) ───────────
         {
           path: 'group',
           element: <GroupOverview />,
@@ -207,14 +194,97 @@ const router = createBrowserRouter(
             breadcrumb: () => createBreadcrumb('Group Project', '/group'),
           },
         },
+
+        // ─────────── FitPhone Case Study with Nested Children ───────────
         {
           path: 'fitphone',
           element: <FitPhone />,
           handle: {
-            breadcrumb: () => createBreadcrumb('FitPhone Case', '/fitphone'),
+            breadcrumb: () =>
+              createBreadcrumb('FitPhone Case Study', '/fitphone'),
           },
+          children: [
+            {
+              path: 'brainstorming',
+              element: <Brainstorming />,
+              handle: {
+                breadcrumb: () =>
+                  createBreadcrumb(
+                    'Brainstorming & Research',
+                    '/fitphone/brainstorming'
+                  ),
+              },
+            },
+            {
+              path: 'design',
+              element: <DesignIterations />,
+              handle: {
+                breadcrumb: () =>
+                  createBreadcrumb(
+                    'Design Iterations',
+                    '/fitphone/design'
+                  ),
+              },
+            },
+            {
+              path: 'prototype-testing',
+              element: <PrototypeTesting />,
+              handle: {
+                breadcrumb: () =>
+                  createBreadcrumb(
+                    'Prototype Testing',
+                    '/fitphone/prototype-testing'
+                  ),
+              },
+            },
+            {
+              path: 'feedback-implementation',
+              element: <FeedbackImplementation />,
+              handle: {
+                breadcrumb: () =>
+                  createBreadcrumb(
+                    'Feedback Implementation',
+                    '/fitphone/feedback-implementation'
+                  ),
+              },
+            },
+            {
+              path: 'realization',
+              element: <Realization />,
+              handle: {
+                breadcrumb: () =>
+                  createBreadcrumb(
+                    'Realization & Coding',
+                    '/fitphone/realization'
+                  ),
+              },
+            },
+            {
+              path: 'meetings',
+              element: <Meetings />,
+              handle: {
+                breadcrumb: () =>
+                  createBreadcrumb(
+                    'Meetings & Collaboration',
+                    '/fitphone/meetings'
+                  ),
+              },
+            },
+            {
+              path: 'way-of-working',
+              element: <WayOfWorking />,
+              handle: {
+                breadcrumb: () =>
+                  createBreadcrumb(
+                    'Way of Working (Agile)',
+                    '/fitphone/way-of-working'
+                  ),
+              },
+            },
+          ],
         },
-        // TODO: Add other child routes here
+
+        // You can add more top-level routes here if needed...
       ],
     },
   ],
@@ -228,3 +298,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <RouterProvider router={router} />
   </React.StrictMode>
 );
+

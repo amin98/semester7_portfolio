@@ -6,16 +6,16 @@ const Home = () => {
     {
       title: 'Group Project',
       description:
-        'Discover our collaborative effort, showcasing teamwork, shared responsibilities, and collective achievements against the Learning Outcomes.',
+        'See our work together, showing teamwork, how we shared tasks, and what we achieved for the FitPhone project.',
       link: '/group',
-      cta: 'View Group Progress',
+      cta: 'See Group Work Done',
     },
     {
       title: 'Individual Case',
       description:
-        'Explore my personal project, including design iterations, development progress, and reflections on the Learning Outcomes.',
+        'Take a look at my personal project, with design changes, how I developed it, and my thoughts on the Learning Outcomes.',
       link: '/individual',
-      cta: 'View Individual Progress',
+      cta: 'See My Own Work Done',
     },
   ];
 
@@ -23,12 +23,12 @@ const Home = () => {
     <div className="p-6 bg-background min-h-screen">
       <header className="mb-12 text-center">
         <h1 className="text-4xl md:text-5xl font-bold text-textPrimary mb-4">
-          Welcome to My Portfolio
+          Portfolio - Semester 7
         </h1>
         <p className="text-lg md:text-xl text-textSecondary max-w-3xl mx-auto">
-          This portfolio documents my journey, skills, and achievements
-          throughout the semester. Navigate through my individual and group
-          projects to see my progress against the learning outcomes.
+          This portfolio shows my learning, skills, and what I did in the
+          semester. Go through my own and group projects to see how I did with
+          the Learning Outcomes.
         </p>
       </header>
 
@@ -55,8 +55,8 @@ const Home = () => {
       {/* You can add other sections here, e.g., about me, link to assessment feedback */}
       <div className="mt-16 text-center">
         <p className="text-textSecondary">
-          Explore further using the sidebar navigation for detailed Learning
-          Outcomes, improvements, and more.
+          Look more using the menu on the side for details on Learning Outcomes,
+          improvements, and more things.
         </p>
       </div>
     </div>

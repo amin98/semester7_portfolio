@@ -1,92 +1,94 @@
+// src/pages/reading-app/features/OnboardingFeaturePage.jsx
 import React from 'react';
 import FeatureComponent from '../../../components/FeatureComponent';
+
 import v1 from '../../../assets/lo_images/readingapp/design/onboarding/v1.png';
 import v2 from '../../../assets/lo_images/readingapp/design/onboarding/v2.png';
 import v3 from '../../../assets/lo_images/readingapp/design/onboarding/v3.png';
-import v4 from '../../../assets/lo_images/readingapp/design/onboarding/v4.png';
 import v4_1 from '../../../assets/lo_images/readingapp/design/onboarding/v4-1.png';
 import v4_2 from '../../../assets/lo_images/readingapp/design/onboarding/v4-2.png';
+import v4 from '../../../assets/lo_images/readingapp/design/onboarding/v4.png';
 
 const onboardingFeatureData = {
-  featureTitle: 'User Onboarding Flow – Preference Discovery',
+  featureTitle: 'User Onboarding Flow – Finding What You Enjoy',
   featureIntro:
-    'This onboarding sequence was designed to collect meaningful user data (e.g., genres, moods, personality indicators) in a way that feels intuitive and engaging. Instead of a static form, I aimed to make the process exploratory, personal, and visually driven. This evolution focused on reducing drop-off while increasing emotional investment in the app from the start.',
+    'I did not want users to feel like they are filling a big form. So I make onboarding more like a small fun quiz. Not plain lists, I use mood carousels and playful icons. This makes onboarding feel like mini-game, and it helps app learn user taste for reading.',
   designVersions: [
     {
-      versionName: 'Version 1 – Traditional Genre Form',
+      versionName: 'Version 1 – Old Style Genre Form',
       screenshotUrl: v1,
-      caption: 'List of genres with radio buttons and a “Continue” CTA.',
+      caption:
+        'Simple list of genres with a radio button and "Continue" button.',
       changesDescription:
-        'A basic form-like screen asking the user to choose their favorite genre. Clear, but uninspiring. The visual style was minimal and utilitarian.',
+        'This first version is a very plain screen. It asks user to choose favorite genre, like an old web form. It works but is boring and too serious.',
       researchInsight:
-        'Traditional forms are easy to implement but often lead to user fatigue or drop-off unless extremely concise.',
+        'I read that forms often make people tired quickly if too many options. They want easy steps.',
       hmwQuestion:
-        'How might we gather preferences without making it feel like a form?',
+        'How can we ask user about their likes without it feeling like a form?',
       learningOutcomes: ['Design', 'Analysis'],
     },
     {
-      versionName: 'Version 2 – Mood Carousel',
+      versionName: 'Version 2 – Mood Picture Carousel',
       screenshotUrl: v2,
-      caption: 'Horizontal icon selector using illustrated mood scenes.',
+      caption: 'Horizontal icons that show mood scenes for picking.',
       changesDescription:
-        'Moved to an icon-based carousel asking users to select the “scene” that matches their mood. Added navigational arrows and visual anchors.',
+        'I change to an icon carousel. User scrolls left or right to pick a scene that matches their mood. I add arrows and simple art to give a feeling of choice.',
       researchInsight:
-        'Mood-based onboarding (used by apps like Finch and Headspace) builds faster emotional connections by allowing symbolic self-expression.',
+        'Apps like Finch and Headspace let user pick mood images. This makes people feel connection more fast.',
       hmwQuestion:
-        'How might we let users express mood or preference with minimal cognitive load?',
+        'How to let user show mood or what they like with small effort?',
       learningOutcomes: ['Design', 'Advice'],
     },
     {
-      versionName: 'Version 3 – Illustrated Fandom Cues',
+      versionName: 'Version 3 – Symbols from Fandoms',
       screenshotUrl: v3,
-      caption: 'Stylized icons representing pop culture to imply identity.',
+      caption: 'Icons of pop culture things to let user feel their identity.',
       changesDescription:
-        'Introduced etched illustrations of iconic items (Pokeball, Naruto band, etc.) to help users associate the app with personal identity and fandom. The sepia tone grounded the aesthetic.',
+        'I add drawings of known things like a Pokéball or ninja headband. This connects to pop culture and helps user feel "this is me." Color is sepia to look warm.',
       researchInsight:
-        'Nostalgia and familiarity can enhance relatability. This approach increases emotional stickiness for Gen Z users.',
-      hmwQuestion:
-        'How might we use symbolic language to help users feel seen?',
+        'People feel good when they see things from their own memories. Nostalgia helps user to stay longer.',
+      hmwQuestion: 'How to use symbols so user feels the app understands them?',
       learningOutcomes: ['Design'],
     },
     {
-      versionName: 'Version 4 – Gamified Vibe Picker',
+      versionName: 'Version 4 – Vibe Picker Like a Game',
       screenshotUrl: v4,
-      caption: 'Selectable objects with visual progress tracking.',
+      caption:
+        'User picks 3 "vibe" items, with a progress indicator down below.',
       changesDescription:
-        'Users are now asked to pick 3 “vibe” objects that resonate. The design introduced circular cards, object illustrations, and a clean progress indicator.',
+        'Now user sees round cards with small images. They pick three things that feel good. I show a progress circle so user knows how many are left.',
       researchInsight:
-        'Gamified micro-goals (e.g., pick 3) improve engagement by tapping into collection mechanics and completion psychology.',
-      hmwQuestion:
-        'How might we turn onboarding into a mini personality game?',
+        'When user has a small goal like "pick three," it feels like a game and people are more active in it.',
+      hmwQuestion: 'How to make onboarding feel like a fun small game?',
       learningOutcomes: ['Design'],
     },
     {
-      versionName: 'Version 4.1 – Confirmation Modal',
+      versionName: 'Version 4.1 – Popup for Confirmation',
       screenshotUrl: v4_1,
-      caption: 'Final selection confirmation before submission.',
+      caption: 'Popup asks "Are you sure?" before user sends their answers.',
       changesDescription:
-        'Introduced a “Are you sure?” dialog before committing answers. Created space for reflection, and added polish to the interaction flow.',
+        'I add a simple confirm box before they save. This gives user a moment to think and makes mistakes less.',
       researchInsight:
-        'Modal confirmations improve perceived control and reduce accidental commitment errors.',
+        'Popups help user feel they have control and make fewer errors by asking again.',
       hmwQuestion:
-        'How might we add intentionality without annoying the user?',
+        'How to add a check step without making user annoyed too much?',
       learningOutcomes: ['Design', 'Professional Skills'],
     },
     {
-      versionName: 'Version 4.2 – UI Polish & Accessibility',
+      versionName: 'Version 4.2 – Polish & Making it Easy to Use',
       screenshotUrl: v4_2,
-      caption: 'Refined spacing, better touch targets, consistent CTA color.',
+      caption:
+        'Better space between cards, clearer buttons, good contrast for easy reading.',
       changesDescription:
-        'Improved button contrast, spacing between selections, and visual alignment. Final UI ready for implementation with feedback from peers.',
+        'I improve spacing so icons do not feel too close. I fix button colors for better contrast. All final changes based on what peers said.',
       researchInsight:
-        'Consistency and spacing are major UX trust factors. Small misalignments reduce perceived quality.',
-      hmwQuestion:
-        'How might we ship an onboarding that feels simple but polished?',
+        'Good spacing and clear buttons help user trust the app. Small mistakes in alignment make it feel less quality.',
+      hmwQuestion: 'How to make onboarding look simple but also polished?',
       learningOutcomes: ['Design', 'Professional Skills'],
     },
   ],
   reflectionText:
-    'The onboarding feature went from a form-based data capture to a playful experience rooted in self-expression. By layering in familiar icons, simple gamification, and clearer visual metaphors, the process became something users actively enjoy rather than tolerate. I learned that emotional design and narrative framing have just as much UX value as clear information hierarchy.',
+    'At the start, the simple form felt too cold. When I add icons, a progress bar, and steps like a game, people find it more fun. I learn that putting small playful details into clear steps makes onboarding more memorable and nice to do.',
 };
 
 const OnboardingFeaturePage = () => {

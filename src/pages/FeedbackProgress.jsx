@@ -11,20 +11,19 @@ const FeedbackProgress = () => {
   const feedbackItems = [
     {
       id: 'portfolio_visibility',
-      text: 'Portfolio does not show what you know...',
+      text: 'Portfolio does not show what you know well...',
       status: 'pending',
     },
     {
       id: 'individual_contribution',
-      text: 'Individual contribution invisible...',
+      text: 'What you did alone is not clear...',
       status: 'in_progress',
     },
     {
       id: 'design_versions',
-      text: 'Lack of design versions...',
+      text: 'Not enough design versions shown...',
       status: 'done',
     },
-    // ... other items
   ];
 
   // Map status to color
@@ -37,7 +36,7 @@ const FeedbackProgress = () => {
   return (
     <div className="max-w-3xl mx-auto p-6">
       <h1 className="text-h2 font-bold font-sans text-textPrimary mb-6 leading-tight">
-        Improvements & Feedback Loop
+        Improvements & How We Use Feedback
       </h1>
       <div className="space-y-8">
         {/* // TODO: Replace with actual TimelineItem components when ready */}
@@ -57,8 +56,8 @@ const FeedbackProgress = () => {
             </p>
             {/* <p className="text-sm">Related Section: <a href={feedbackMap[item.id] || '#'} className="text-primary hover:underline">Link</a></p> */}
             <p className="text-sm font-sans text-textSecondary">
-              *Placeholder for TimelineItem content showing 'before' and
-              'after'*
+              *Placeholder for TimelineItem content showing 'before' and 'after'
+              views*
             </p>
           </div>
         ))}

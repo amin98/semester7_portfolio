@@ -1,12 +1,16 @@
+// src/components/FeatureComponent.jsx
 import React, { useState } from 'react';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 const FeatureComponent = ({
   featureTitle,
   featureIntro,
+  mainHmwQuestion, // New prop for the main HMW question
   designVersions = [],
   reflectionText,
-  implementationPlanText,
   nextStepsText,
+  relevantLearningOutcomesOverall = [],
 }) => {
   const [currentVersionIndex, setCurrentVersionIndex] = useState(0);
 
@@ -26,19 +30,59 @@ const FeatureComponent = ({
 
   const currentVersion = designVersions[currentVersionIndex];
 
+  const markdownComponents = {
+    p: ({ ...props }) => (
+      <p className="text-textSecondary text-lg mb-4" {...props} />
+    ),
+    strong: ({ ...props }) => (
+      <strong className="font-semibold text-textPrimary" {...props} />
+    ),
+  };
+
   return (
-    <div className="max-w-5xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
-      {/* Feature Title and Intro */}
+    <div className="max-w-5xl mx-auto py-4 px-4 sm:px-6 lg:px-2">
       <header className="mb-12 border-b border-gray-200 pb-8">
         <h1 className="text-4xl font-bold tracking-tight text-textPrimary sm:text-5xl mb-4">
           {featureTitle}
         </h1>
+
+        {relevantLearningOutcomesOverall?.length > 0 && (
+          <div className="flex flex-wrap gap-2 mb-4">
+            {relevantLearningOutcomesOverall.map((lo, idx) => (
+              <span
+                key={idx}
+                className="px-3 py-1 bg-gray-100 text-sm text-gray-700 rounded-full"
+              >
+                {lo}
+              </span>
+            ))}
+          </div>
+        )}
+
         {featureIntro && (
-          <p className="text-xl text-textSecondary">{featureIntro}</p>
+          <div className="text-xl text-textSecondary mb-6 prose prose-xl max-w-none">
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              components={markdownComponents}
+            >
+              {featureIntro}
+            </ReactMarkdown>
+          </div>
+        )}
+
+        {/* Standalone Main HMW Question Section */}
+        {mainHmwQuestion && (
+          <section className="my-8 p-4 bg-indigo-50 border border-indigo-200 rounded-lg">
+            <h2 className="text-xl font-semibold text-indigo-700 mb-2">
+              How Might We Question:
+            </h2>
+            <p className="text-indigo-600 text-xl">
+              "{mainHmwQuestion}"
+            </p>
+          </section>
         )}
       </header>
 
-      {/* Design Versions Section */}
       {designVersions.length > 0 && (
         <section aria-labelledby="design-versions-title" className="mb-16">
           <h2
@@ -51,28 +95,26 @@ const FeatureComponent = ({
             <div className="flex justify-between items-center mb-6 px-1">
               <button
                 onClick={goToPreviousVersion}
-                className="text-sm font-medium text-primary hover:text-primary-dark transition-colors duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50"
+                className="text-sm font-medium text-primary hover:text-primary-dark"
                 aria-label="Previous version"
               >
-                &larr; Previous
+                ← Previous
               </button>
-              <h2 className="text-textSecondary text-base font-semibold">
-                {/* Version {currentVersionIndex + 1} of {designVersions.length} */}
+              <h3 className="text-textSecondary text-base font-semibold">
                 {currentVersion.versionName}
-              </h2>
+              </h3>
               <button
                 onClick={goToNextVersion}
-                className="text-sm font-medium text-primary hover:text-primary-dark transition-colors duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50"
+                className="text-sm font-medium text-primary hover:text-primary-dark"
                 aria-label="Next version"
               >
-                Next &rarr;
+                Next →
               </button>
             </div>
           )}
-          {/* Display current version */}
           {currentVersion && (
             <article
-              key={currentVersionIndex} // Use currentVersionIndex for key if designVersions can change
+              key={currentVersionIndex}
               className="bg-white rounded-xl overflow-hidden border border-gray-200"
             >
               <div
@@ -82,7 +124,6 @@ const FeatureComponent = ({
                     : ''
                 }`}
               >
-                {/* Textual Content Column (Left) */}
                 <div
                   className={`${
                     currentVersion.screenshotUrl ? 'md:w-2/3' : 'w-full'
@@ -92,18 +133,23 @@ const FeatureComponent = ({
                     {currentVersion.versionName ||
                       `Version ${currentVersionIndex + 1}`}
                   </h3>
+
                   {currentVersion.changesDescription && (
-                    <p className="text-textSecondary mb-6 italic">
-                      {currentVersion.changesDescription}
-                    </p>
+                    <div className="mb-6 prose max-w-none">
+                      <ReactMarkdown
+                        remarkPlugins={[remarkGfm]}
+                        components={markdownComponents}
+                      >
+                        {currentVersion.changesDescription}
+                      </ReactMarkdown>
+                    </div>
                   )}
 
-                  {/* Sub-sections: Research Insight, HMW, Learning Outcomes */}
                   {(currentVersion.researchInsight ||
-                    currentVersion.hmwQuestion ||
-                    (currentVersion.learningOutcomes &&
-                      currentVersion.learningOutcomes.length > 0)) && (
-                    <div className="space-y-6 text-sm mt-6">
+                    currentVersion.hmwQuestion || // HMW for specific iteration
+                    currentVersion.theoreticalGrounding ||
+                    currentVersion.learningOutcomes?.length > 0) && (
+                    <div className="space-y-6 text-lg mt-6">
                       {currentVersion.researchInsight && (
                         <div>
                           <h4 className="font-semibold text-textPrimary mb-1">
@@ -114,39 +160,51 @@ const FeatureComponent = ({
                           </p>
                         </div>
                       )}
+                      {/* HMW Question specific to this iteration */}
                       {currentVersion.hmwQuestion && (
                         <div>
                           <h4 className="font-semibold text-textPrimary mb-1">
-                            How Might We:
+                            Iterative How Might We:
                           </h4>
-                          <p className="text-textSecondary">
-                            {currentVersion.hmwQuestion}
+                          <p className="text-textSecondary italic">
+                            "{currentVersion.hmwQuestion}"
                           </p>
                         </div>
                       )}
-                      {currentVersion.learningOutcomes &&
-                        currentVersion.learningOutcomes.length > 0 && (
-                          <div>
-                            <h4 className="font-semibold text-textPrimary mb-1">
-                              Learning Outcomes:
-                            </h4>
-                            <ul className="list-disc list-inside text-textSecondary space-y-1">
-                              {currentVersion.learningOutcomes.map(
-                                (lo, idx) => (
-                                  <li key={idx}>{lo}</li>
-                                )
-                              )}
-                            </ul>
+                      {currentVersion.theoreticalGrounding && (
+                        <div>
+                          <h4 className="font-semibold text-textPrimary mb-1">
+                            Theoretical Grounding:
+                          </h4>
+                          <div className="text-textSecondary prose max-w-none">
+                            <ReactMarkdown
+                              remarkPlugins={[remarkGfm]}
+                              components={markdownComponents}
+                            >
+                              {currentVersion.theoreticalGrounding}
+                            </ReactMarkdown>
                           </div>
-                        )}
+                        </div>
+                      )}
+                      {currentVersion.learningOutcomes?.length > 0 && (
+                        <div>
+                          <h4 className="font-semibold text-textPrimary mb-1">
+                            Learning Outcomes:
+                          </h4>
+                          <ul className="list-disc list-inside text-textSecondary space-y-1">
+                            {currentVersion.learningOutcomes.map((lo, idx) => (
+                              <li key={idx}>{lo}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
                     </div>
                   )}
                 </div>
 
-                {/* Screenshot Column (Right) */}
                 {currentVersion.screenshotUrl && (
                   <div className="md:w-1/3 mt-6 md:mt-0">
-                    <div className="  p-4 sm:p-6 rounded-lg flex flex-col items-center">
+                    <div className="p-4 sm:p-6 rounded-lg flex flex-col items-center">
                       <img
                         src={currentVersion.screenshotUrl}
                         alt={
@@ -169,49 +227,43 @@ const FeatureComponent = ({
         </section>
       )}
 
-      {/* Optional Bottom Sections */}
-      {(reflectionText || implementationPlanText || nextStepsText) && (
-        <footer className="mt-16 pt-8 border-t border-gray-200 space-y-10">
+      {(reflectionText || nextStepsText) && (
+        <div className="mt-16 pt-8 border-t border-gray-200 space-y-10">
           {reflectionText && (
             <section aria-labelledby="reflection-title">
               <h2
                 id="reflection-title"
-                className="text-2xl font-semibold text-textPrimary mb-3"
+                className="text-3xl font-semibold text-textPrimary mb-3"
               >
                 Reflection
               </h2>
-              <p className="text-textSecondary whitespace-pre-line">
-                {reflectionText}
-              </p>
+              <div className="text-textSecondary prose max-w-none">
+                <ReactMarkdown
+                  remarkPlugins={[remarkGfm]}
+                  components={markdownComponents}
+                >
+                  {reflectionText}
+                </ReactMarkdown>
+              </div>
             </section>
           )}
-          {implementationPlanText && (
-            <section aria-labelledby="implementation-plan-title">
-              <h2
-                id="implementation-plan-title"
-                className="text-2xl font-semibold text-textPrimary mb-3"
-              >
-                Implementation Plan
-              </h2>
-              <p className="text-textSecondary whitespace-pre-line">
-                {implementationPlanText}
-              </p>
-            </section>
-          )}
+
           {nextStepsText && (
             <section aria-labelledby="next-steps-title">
-              <h2
-                id="next-steps-title"
-                className="text-2xl font-semibold text-textPrimary mb-3"
-              >
+              <h2 className="text-3xl font-semibold text-textPrimary mb-3">
                 Next Steps
               </h2>
-              <p className="text-textSecondary whitespace-pre-line">
-                {nextStepsText}
-              </p>
+              <div className="text-textSecondary prose max-w-none">
+                <ReactMarkdown
+                  remarkPlugins={[remarkGfm]}
+                  components={markdownComponents}
+                >
+                  {nextStepsText}
+                </ReactMarkdown>
+              </div>
             </section>
           )}
-        </footer>
+        </div>
       )}
     </div>
   );

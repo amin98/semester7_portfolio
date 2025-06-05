@@ -7,10 +7,10 @@ const learningOutcomesData = [
     id: 'analysis',
     title: 'Analysis',
     description:
-      'Critically and methodically analyse a problem, opportunity or technology in a smart-mobile context.',
+      'Look very close and step-by-step at a problem, chance or technology in a smart-mobile way.',
     progressItems: [
-      'Collaboratively defined project scope and objectives.',
-      'Analyzed target user group for the group project.',
+      'Together, we decided the project plan and goals.',
+      'Looked at the target user group for our group project.',
     ],
     status: 'In Progress',
   },
@@ -18,10 +18,10 @@ const learningOutcomesData = [
     id: 'advice',
     title: 'Advice',
     description:
-      'Based on relevant analysis, you advise on suitable user interaction and technological design, improvement of designs, research and/or methodology.',
+      'Based on good analysis, you give advice on good user interaction and tech design, making designs better, research and/or how to do things.',
     progressItems: [
-      'Contributed to technology selection discussions.',
-      'Provided input on UI/UX design choices for group application.',
+      'Helped in talks about choosing technology.',
+      'Gave ideas on UI/UX design choices for group app.',
     ],
     status: 'To Do',
   },
@@ -29,10 +29,10 @@ const learningOutcomesData = [
     id: 'design',
     title: 'Design',
     description:
-      'Use a design process to create UX and technological designs and validate your choices, in a context which is complex and subject to change.',
+      'Use a design way to make UX and tech designs and check your choices, in a situation that is complex and can change.',
     progressItems: [
-      'Participated in group brainstorming and design sessions.',
-      'Contributed to the creation of shared design mockups.',
+      'Took part in group idea sessions and design meetings.',
+      'Helped to make shared design mockups.',
     ],
     status: 'In Progress',
   },
@@ -40,10 +40,10 @@ const learningOutcomesData = [
     id: 'realisation',
     title: 'Realisation',
     description:
-      'Based on a relevant design you implement, validate and deploy an interactive and reliable smart-mobile product.',
+      'Based on a good design, you make, check and put out an interactive and working smart-mobile product.',
     progressItems: [
-      'Developing specific modules/features for the group project.',
-      'Integrating individual contributions into the main codebase.',
+      'Making some parts/features for the group project.',
+      'Putting individual work into the main codebase.',
     ],
     status: 'In Progress',
   },
@@ -51,10 +51,10 @@ const learningOutcomesData = [
     id: 'manage-control',
     title: 'Manage & Control',
     description:
-      'Continuously apply methodologies to manage a development process and to assure its quality in direct communication with all stakeholders.',
+      'Always use methods to manage a development way and make sure it is good quality, talking directly with all people involved.',
     progressItems: [
-      'Participated in sprint planning and review meetings.',
-      'Utilized shared version control (e.g., Git) for collaborative development.',
+      'Took part in sprint planning and review meetings.',
+      'Used shared version control (like Git) for working together on development.',
     ],
     status: 'Done',
   },
@@ -62,11 +62,11 @@ const learningOutcomesData = [
     id: 'professional-skills',
     title: 'Professional Skills',
     description:
-      'Demonstrate your professional development as a mobile developer through authentic, professional IT tasks in which both the process and the result are visible.',
+      'Show your professional growth as a mobile developer with real, professional IT tasks where both the way of working and the result can be seen.',
     progressItems: [
-      'Effective communication and collaboration within the team.',
-      'Peer reviewing code and providing constructive feedback.',
-      'Contributing to group project documentation.',
+      'Good talking and working together in the team.',
+      'Looking at team code and giving good feedback.',
+      'Helping with group project documents.',
     ],
     status: 'In Progress',
   },
@@ -89,17 +89,17 @@ const GroupOverview = () => {
     <div className="p-6 bg-background min-h-screen">
       <header className="mb-10">
         <h1 className="text-4xl font-bold text-textPrimary mb-3">
-          Group Project Progress
+          Group Project Work Done
         </h1>
         <p className="text-lg text-textSecondary mb-6">
-          Overview of contributions and team achievements for the group project,
-          organized by Learning Outcomes.
+          Summary of what we did and team successes for the group project, put
+          by Learning Outcomes.
         </p>
         <Link
           to="/fitphone"
           className="inline-block bg-primary text-white font-semibold px-cta-x py-3 rounded-lg hover:bg-opacity-90 transition-colors"
         >
-          View FitPhone Case Study &rarr;
+          See FitPhone Case Study &rarr;
         </Link>
       </header>
 
@@ -127,7 +127,7 @@ const GroupOverview = () => {
               </ul>
             ) : (
               <p className="text-textSecondary">
-                No progress items documented for this outcome yet.
+                No work items written for this goal yet.
               </p>
             )}
           </section>

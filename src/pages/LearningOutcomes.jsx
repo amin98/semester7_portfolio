@@ -8,7 +8,7 @@ const LearningOutcomes = () => {
     <div className="max-w-4xl mx-auto p-6">
       <header className="mb-10">
         <h1 className="text-h1 font-bold font-sans text-textPrimary mb-4 leading-tight">
-          Learning Outcomes Overview
+          Learning Outcomes Summary
         </h1>
       </header>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
