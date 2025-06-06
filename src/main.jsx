@@ -3,30 +3,29 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
 
-
 // Layout & Shared Pages
 import Layout from './components/Layout';
-import Home from './pages/Home';
 import FeedbackProgress from './pages/FeedbackProgress';
-import VersionHistory from './pages/VersionHistory';
-import Planning from './pages/Planning';
+import Home from './pages/Home';
 import LearningOutcomes from './pages/LearningOutcomes';
-import Analysis from './pages/lo/Analysis';
 import Advice from './pages/lo/Advice';
+import Analysis from './pages/lo/Analysis';
 import Design from './pages/lo/Design';
-import Realisation from './pages/lo/Realisation';
 import ManageControl from './pages/lo/ManageControl';
 import Professional from './pages/lo/Professional';
+import Realisation from './pages/lo/Realisation';
+import Planning from './pages/Planning';
+import VersionHistory from './pages/VersionHistory';
 
 // Individual Project (Reading App)
-import ReadingApp from './pages/ReadingApp';
-import WelcomeFeaturePage from './pages/reading-app/features/WelcomeFeaturePage';
+import IndividualOverview from './pages/IndividualOverview';
+import HomeInterfaceFeaturePage from './pages/reading-app/features/HomeInterfaceFeaturePage';
 import OnboardingFeaturePage from './pages/reading-app/features/OnboardingFeaturePage';
 import PostOnboardingFeaturePage from './pages/reading-app/features/PostOnboardingFeaturePage';
 import ReadingInterfaceFeaturePage from './pages/reading-app/features/ReadingInterfaceFeaturePage';
-import HomeInterfaceFeaturePage from './pages/reading-app/features/HomeInterfaceFeaturePage';
+import WelcomeFeaturePage from './pages/reading-app/features/WelcomeFeaturePage';
 import Implementation from './pages/reading-app/Implementation';
-import IndividualOverview from './pages/IndividualOverview';
+import ReadingApp from './pages/ReadingApp';
 
 // Group Overview (if you still want a landing page)
 /** (You can keep this or remove if you only want /fitphone) */
@@ -36,10 +35,10 @@ import GroupOverview from './pages/GroupOverview';
 import FitPhone from './pages/FitPhone';
 import Brainstorming from './pages/fitphone/Brainstorming';
 import DesignIterations from './pages/fitphone/DesignIterations';
-import PrototypeTesting from './pages/fitphone/PrototypeTesting';
 import FeedbackImplementation from './pages/fitphone/FeedbackImplementation';
-import Realization from './pages/fitphone/Realization';
 import Meetings from './pages/fitphone/Meetings';
+import PrototypeTesting from './pages/fitphone/PrototypeTesting';
+import Realization from './pages/fitphone/Realization';
 import WayOfWorking from './pages/fitphone/WayOfWorking';
 
 // Helper function for breadcrumbs (can be kept here or in a utils file)
@@ -220,10 +219,7 @@ const router = createBrowserRouter(
               element: <DesignIterations />,
               handle: {
                 breadcrumb: () =>
-                  createBreadcrumb(
-                    'Design Iterations',
-                    '/fitphone/design'
-                  ),
+                  createBreadcrumb('Design Iterations', '/fitphone/design'),
               },
             },
             {
@@ -298,4 +294,3 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <RouterProvider router={router} />
   </React.StrictMode>
 );
-

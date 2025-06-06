@@ -1,10 +1,29 @@
 import React from 'react';
 import { Link, Outlet, useOutlet } from 'react-router-dom';
 
+const analysisTopicLinks = [
+  {
+    path: 'analysis/problem-definition', 
+    label: 'Problem & Opportunity',
+    description: 'Defining the core problem and market opportunity for the app.',
+  },
+  {
+    path: 'analysis/target-audience',
+    label: 'Target Audience & Personas',
+    description: 'Understanding who the app is for and their needs.',
+  },
+  {
+    path: 'analysis/competitive-landscape',
+    label: 'Competitive Analysis',
+    description: 'Reviewing existing solutions and identifying differentiators.',
+  },
+ 
+];
+
 const featureLinks = [
   {
     path: 'features/welcome',
-    label: 'Welcome & First Setup',
+    label: 'Welcome Screen',
     description: 'First look and how to enter app.',
   },
   {
@@ -43,7 +62,7 @@ const ReadingApp = () => {
           <div className="max-w-7xl mx-auto">
             <header className="py-4 px-6">
               <h1 className="text-4xl font-bold text-textPrimary mb-4">
-                ReadingApp Case Study - How It Was Made
+                Reading App Case Study
               </h1>
               <p className="text-textSecondary text-lg mb-10">
                 A close look at the design process and how a mobile reading
@@ -53,6 +72,28 @@ const ReadingApp = () => {
           </div>
 
           <div className="max-w-7xl mx-auto">
+          <section className="px-6 py-8 border-t border-gray-200">
+              <h2 className="text-3xl font-semibold text-textPrimary mb-8 text-start">
+                Analysis & Discovery
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {analysisTopicLinks.map((topic) => (
+                  <Link
+                    key={topic.path}
+                    to={topic.path}
+                    className="block p-6 bg-white rounded-xl border border-gray-200 group hover:shadow-md transition duration-50 ease-in"
+                  >
+                    <h3 className="text-xl font-semibold text-primary mb-2">
+                      {topic.label}
+                    </h3>
+                    <p className="text-base text-textSecondary">
+                      {topic.description}
+                    </p>
+                  </Link>
+                ))}
+              </div>
+            </section>
+
             <section className="px-6 py-8 border-t border-gray-200">
               <h2 className="text-3xl font-semibold text-textPrimary mb-8 text-start">
                 Design Process
@@ -62,12 +103,12 @@ const ReadingApp = () => {
                   <Link
                     key={feature.path}
                     to={feature.path}
-                    className="block p-6 bg-white rounded-xl transition-shadow border border-gray-200 group"
+                    className="block p-6 bg-white rounded-xl border border-gray-200 group hover:shadow-md  transition duration-50 ease-in"
                   >
-                    <h3 className="text-xl font-semibold text-primary mb-2 group-hover:underline">
+                    <h3 className="text-xl font-semibold text-primary mb-2 ">
                       {feature.label}
                     </h3>
-                    <p className="text-sm text-textSecondary">
+                    <p className="text-base text-textSecondary">
                       {feature.description}
                     </p>
                   </Link>
