@@ -1,38 +1,54 @@
-// src/pages/reading-app/features/onboardingFeaturePage.jsx
 import React from 'react';
 import FeatureComponent from '../../../components/FeatureComponent';
 
-// Image imports
 import v1 from '../../../assets/lo_images/readingapp/design/welcome/v1.png';
 import v2 from '../../../assets/lo_images/readingapp/design/welcome/v2.png';
 import v3_1 from '../../../assets/lo_images/readingapp/design/welcome/v3-1.png';
 import v3 from '../../../assets/lo_images/readingapp/design/welcome/v3.png';
 
-const welcomeFeatureDataWithProcess = {
-  featureTitle: 'Welcome Screen',
+export const welcomeFeatureDataWithProcess = {
+  // 1. Standard Card Properties
+  path: 'features/welcome',
+  label: 'Welcome Screen',
+  description: 'First look and how to enter app.',
   relevantLearningOutcomesOverall: [
     'Analysis',
     'Advice',
     'Design',
     'Professional Skills',
   ],
-  featureIntro:
-    "The first screen a user encounters sets the crucial initial tone for their app experience. My goal for the Welcome Screen was to create an inviting 'hello'—moving beyond a plain, functional start to one that uses soft visuals, friendly language, and evocative imagery. The aim was to make users feel welcomed and curious, subtly introducing the app's personality before they begin the onboarding process. This involved iterative analysis of user expectations and design principles to transform a simple entry point into an engaging invitation.",
+
+  // 2.-3. Content Enhancements
+  featureTitle: 'Welcome Screen: Setting an Inviting Tone',
   mainHmwQuestion:
-    'How can we make the first screen feel more welcoming and not like a machine?',
+    'How might we make the first screen of the app feel like a warm, personal invitation rather than a cold, functional machine?',
+  featureIntro: `The first screen a user sees is a critical first impression that sets the tone for their entire experience. My objective was to create a "nice hello"—an inviting, intriguing welcome that subtly introduces the app's personality. This involved an iterative process of moving beyond a purely functional start screen to one that uses soft colors, friendly language, and eventually, evocative imagery to make users feel welcomed and curious.
+
+**The Challenge & Goal (Analysis):** The challenge was to design a welcome screen that immediately conveys a warm, intriguing atmosphere, encouraging users to proceed without friction. The goal was to create an emotional connection from the very first touchpoint, transforming a simple entry point into an engaging invitation.
+
+**Key User Stories Addressed:**
+* "As a user opening the app for the first time, I want to see something inviting so that I feel good about starting."
+* "As a user, I want the first screen to be clear and simple so that I know what to do next without confusion."
+* "As a user, I want the app to hint at its personality so I can decide if it's for me."
+
+**Stakeholder Considerations (Analysis):**
+*   **End-Users:** Need a welcoming and low-friction entry point into the app.
+*   **Developer (Me):** The design must be technically simple for a first screen (fast loading) while still being engaging. It's the first POC of the app's brand identity.
+*   **Teachers/Mentors:** Expect a thoughtful design process that considers the importance of a first impression in user retention.
+
+**Initial Thoughts & Research (Analysis):** Initial analysis of competing apps showed two paths: purely functional (a logo and a login button) or highly emotive (full-screen video/imagery). My research suggested that for a new app, a middle path—simple, but with personality—was best. This informed my iterative approach, starting with the most basic functional version to have a solid baseline to build upon.
+`,
   designVersions: [
     {
       versionName: 'Version 1: Basic Wireframe',
       screenshotUrl: v1,
       caption:
         'Gray mockup with title in the middle and a simple "Get Started" button.',
-      changesDescription: `**Approach:** This first version was a simple wireframe showing only the main layout: a title and button in the center. There was no color or image. The goal was only to set up the structure and information flow.
-        
-**Shortcoming:** It worked in a basic way, but felt too empty and not very friendly, failing to give a warm welcome feeling.`,
-      // Combined field
-      rationaleAndTheory: `This version served as a baseline, representing a purely functional approach to establish the fundamental layout. The rationale for moving forward was its identified shortcoming: a lack of emotional engagement. No specific UX theories were applied at this early stage beyond basic information hierarchy.`,
+      changesDescription: `**Approach (Design, Analysis):** This first version was a minimal wireframe showing only the essential components: a title and a button. The purpose was to establish the fundamental layout as a Proof of Concept (POC).
+**Shortcoming (Analysis Output):** The analysis of this version was that while functional, it completely failed to meet the 'welcoming' goal. It felt cold, impersonal, and lacked any brand personality.`,
+      rationaleAndTheory: `This version served as a baseline, representing a purely functional approach to establish the fundamental layout. Its identified shortcoming—a lack of emotional engagement—substantiates the choice to iterate towards a more visually rich design, highlighting the need for **Affective Design (Norman)**.`,
       researchInsight:
-        'Looking at popular apps, many even use light emotional cues in early versions. This design felt too dry.',
+        'Analysis of successful apps showed that even early wireframes often incorporate subtle "feeling cues." This version was too stark.',
       learningOutcomes: ['Design', 'Analysis'],
     },
     {
@@ -40,12 +56,13 @@ const welcomeFeatureDataWithProcess = {
       screenshotUrl: v2,
       caption:
         'Cream background with a more playful sentence: "Pick three that you know."',
-      changesDescription: `**Approach:** To give the screen more personality, I changed the text to a friendlier question: 'Pick three that you know.' I used a softer font and a cream-colored background. The button text became 'Begin'.`,
-      rationaleAndTheory: `The justification for these changes was rooted in UX studies suggesting that casual, challenge-like text can improve user involvement. This decision aligns with the **design principle** of using tone of voice to shape user experience. The choice of a friendlier font and softer colors supports creating a more **Affective Design (Norman)**, aiming for a positive emotional response. The textual prompt uses **microcopy principles** to guide and motivate.`,
+      changesDescription: `**Approach (Design, Advice):** To inject personality, I changed the placeholder text to a more playful, onboarding-related question, used a friendlier font, and changed the background to a soft cream color.
+**Justification (Advice):** This was a research-based decision. UX studies suggest that casual, challenge-like text can improve user involvement. This substantiates the choice to use tone of voice to shape the user experience.`,
+      rationaleAndTheory: `This iteration uses **Microcopy** to create a more engaging textual prompt. The choice of a friendlier font and softer colors is a direct application of **Affective Design (Norman)**, aiming for a positive emotional response and a more meaningful experience than the sterile V1.`,
       researchInsight:
-        'UX research says that casual or friendly language can help users stay engaged during onboarding.',
+        'UX studies (an advice source) suggest that casual, invitational text can increase user engagement and progression through onboarding funnels.',
       hmwQuestion:
-        'How can we lead users into the personality quiz without making it feel heavy?',
+        'How can we lead users into the personality quiz without it being too much?',
       learningOutcomes: ['Design', 'Advice', 'Analysis'],
     },
     {
@@ -53,12 +70,13 @@ const welcomeFeatureDataWithProcess = {
       screenshotUrl: v3,
       caption:
         'Image of a young explorer with a magical bookshelf for a playful scene.',
-      changesDescription: `**Approach:** I added a drawing of a young explorer standing by a magical bookshelf, introducing a strong visual story element.`,
-      rationaleAndTheory: `The rationale was to visually communicate that the app is about embarking on a story-like adventure of discovery. This aligns with using **metaphorical design** (bookshelf = discovery) to create meaning. This version heavily leans on **narrative design principles** and **visual storytelling**, aiming to evoke curiosity and connect with the **Octalysis framework's 'Exploration & Curiosity'** core drive.`,
+      changesDescription: `**Approach (Design):** This iteration introduced significant visual storytelling by adding an illustration of a young explorer by a 'magic' bookshelf.
+**Justification (Design):** The rationale was to visually communicate that the app is about embarking on a story-like adventure of discovery, creating a more immersive and meaningful first impression.`,
+      rationaleAndTheory: `This version heavily leans on **Narrative Design Principles** and **Visual Storytelling**. The imagery serves as a **Visual Metaphor** (bookshelf = discovery) and aims to evoke curiosity, connecting with the **Octalysis framework's** 'Exploration & Curiosity' core drive.`,
       researchInsight:
-        'Visual symbols like doors or bookshelves help create a feeling of a journey, which makes the experience more exciting.',
+        'Visual metaphors—like doors or bookshelves—can effectively create a sense of journey and anticipation, making an experience feel more engaging.',
       hmwQuestion:
-        'How can we show that this app is about exploring and finding stories?',
+        'How can we show that this app is about exploring and finding new stories?',
       learningOutcomes: ['Design', 'Analysis'],
     },
     {
@@ -66,24 +84,23 @@ const welcomeFeatureDataWithProcess = {
       screenshotUrl: v3_1,
       caption:
         'Changed the tagline to "Find your vibe" and added more space around the image.',
-      changesDescription: `**Approach:** I changed the tagline to 'Find your vibe' based on comments from users, as it felt more modern and natural to them. I also added more space around the image to make the layout feel lighter. The button text was changed to 'Continue' to match later screens.`,
-      rationaleAndTheory: `The justification for the tagline change came directly from user feedback, aligning with **User-Centered Design (UCD)**. Adding space follows **Gestalt principles (Proximity/Common Region)** to improve visual balance and clarity. Keeping button text consistent ('Continue') adheres to **Nielsen's Heuristic of Consistency and Standards**. Overall, these refinements fit **UX Writing** practices and **visual design principles** for a more polished result.`,
+      changesDescription: `**Approach (Design, Professional Skills):** The tagline was shortened to 'Find your vibe,' based on informal user feedback that it felt more natural and modern. More white space was also added.
+**Justification (Advice, Professional Skills):** The tagline change was a direct result of processing stakeholder feedback. The spacing adjustment follows design principles for visual clarity, demonstrating a professional level of refinement.`,
+      rationaleAndTheory: `Tagline refinement is an aspect of **UX Writing**. The adjustment of white space improves visual composition based on **Gestalt principles** of Proximity and Common Region. Making these small, feedback-driven changes aligns with an agile and **User-Centered Design (UCD)** process.`,
       researchInsight:
-        'User comments showed that shorter and more casual taglines work better with younger users.',
+        'User feedback (even informal) on V3 indicated that shorter, more colloquial taglines resonate better with younger audiences.',
       learningOutcomes: ['Design', 'Advice', 'Professional Skills', 'Analysis'],
     },
   ],
-  reflectionText: `My first version (V1) was very simple, but it felt too empty and not friendly enough. After testing different ideas, I saw that small changes like background color, font, images, and short texts can make a big difference in how the screen feels.
+  reflectionText: `**Key Learnings (Professional Skills):** This feature taught me the importance of setting an emotional tone from the very first screen. The iterative process from a cold, functional box (V1) to a visually rich invitation (V3) demonstrated how visual storytelling can be a powerful tool for engagement, even before any core functionality is accessed.
 
-**Key Learning:** I learned that the first screen should already give a warm and positive feeling. In version 3, I used visual storytelling to make the welcome more engaging, even before the user does anything.
+**Challenge Encountered (Dealing with uncertainty/open-ended challenges):** Balancing visual appeal with conciseness was a significant challenge. The open-ended goal was to be "inviting." I dealt with this by testing concrete hypotheses: "Will softer colors feel more inviting?" (Yes), "Will a picture be more inviting than just text?" (Yes). This iterative testing approach helped navigate the ambiguity.
 
-**Challenge Encountered:** It was difficult to keep the screen both clear and attractive. Finding the right image and short sentence that felt emotional but easy to understand took a few tries.
+**Learning from Feedback & Stakeholders (Professional Skills & Manage & Control):** The shift in tagline in V3.1 based on informal user reactions was a key learning moment. It highlighted how processing even small pieces of direct stakeholder feedback can lead to more effective communication and a better product-market fit.
 
-**Learning from Feedback:** In version 3.1, I changed the sentence based on casual feedback, which showed me how helpful even small comments from users can be.
-
-**Personal Retrospective Goal:** Next time, I want to use small animations or effects earlier in the process, and if possible, do A/B testing to improve important texts like taglines.`,
+**Personal Retrospective Goal (Professional Skills - taking charge of own development):** For future initial screens, I will consider incorporating subtle animations or micro-interactions much earlier in the design process. This could further enhance the 'welcoming' feeling and perceived quality. I also plan to build a small checklist for "First Screen Essentials," including brand tone, core CTA, and emotional goal.`,
   nextStepsText:
-    'Next, I want to test two tagline options—"Find your vibe" and "Start your journey"—with a small group of teenagers to see which one they prefer. If I have time, I will also try adding a small animation, like a bookshelf opening or the character giving a wave, to make the screen more fun.',
+    'Next, I plan to A/B test two tagline variations—"Find your vibe" versus "Start your journey"—with a small group of teenagers to gather quantitative data on preference. Depending on development capacity, I might also explore adding a small bookshelf-opening animation to further increase delight.',
 };
 
 const WelcomeFeaturePage = () => {
