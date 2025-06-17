@@ -1,39 +1,36 @@
 // src/data/allPortfolioItems.js
 
-// Import from ReadingApp main page (top-level chapter links)
+// Import from the new dedicated data file
 import {
-  analysisTopicLinks as ra_analysisTopicLinks,
-  professionalDevelopmentLinks as ra_professionalDevelopmentLinks,
-  projectManagementLinks as ra_projectManagementLinks,
-  techDesignLinks as ra_techDesignLinks,
-} from '../pages/ReadingApp'; // Adjust path
+  analysisTopicLinks,
+  professionalDevelopmentLinks,
+  projectManagementLinks,
+  techDesignLinks,
+} from './readingAppData'; // Corrected Path
 
-// Import ALL data from Reading App individual feature pages
+// Import ALL data from Individual Case individual feature pages
 import { homeInterfaceFeatureDataWithProcess } from '../pages/reading-app/features/HomeInterfaceFeaturePage';
 import { onboardingFeatureDataWithProcess } from '../pages/reading-app/features/OnboardingFeaturePage';
 import { postOnboardingFeatureDataWithProcess } from '../pages/reading-app/features/PostOnboardingFeaturePage';
 import { readingInterfaceFeatureDataWithProcess } from '../pages/reading-app/features/ReadingInterfaceFeaturePage';
-import { welcomeFeatureDataWithProcess } from '../pages/reading-app/features/WelcomeFeaturePage';
+import { welcomeFeatureData } from './readingapp/welcomeFeatureData';
+
+// Import the data from the implementation page
+import { implementationData } from '../pages/reading-app/Implementation';
 
 // Consolidate all feature data into a single array for easier processing
 const readingAppFeatures = [
-  welcomeFeatureDataWithProcess,
+  welcomeFeatureData,
   onboardingFeatureDataWithProcess,
   postOnboardingFeatureDataWithProcess,
   readingInterfaceFeatureDataWithProcess,
   homeInterfaceFeatureDataWithProcess,
 ];
 
-// Placeholder for Reading App Implementation data if it has specific LOs
-const readingAppImplementationDetails = {
-  path: 'implementation', // from ReadingApp.jsx
-  label: 'Development & Deployment Details',
-  description:
-    'Exploring the coding process, challenges, and deployment journey for the Reading App.',
-  learningOutcomes: ['Realisation', 'Design', 'Professional Skills'], // Example
-};
+// Use the imported data directly, no need for a placeholder
+const readingAppImplementationDetails = implementationData;
 
-// --- Prepare Reading App items ---
+// --- Prepare Individual Case items ---
 
 // 1. Map over the consolidated feature data to create standardized items
 const featureItems = readingAppFeatures.map((feature) => ({
@@ -41,36 +38,36 @@ const featureItems = readingAppFeatures.map((feature) => ({
   label: feature.label,
   description: feature.description,
   learningOutcomes: feature.relevantLearningOutcomesOverall,
-  project: 'Reading App',
+  project: 'Individual Case',
   projectPathPrefix: '/reading-app/',
   type: 'feature',
 }));
 
-// 2. Map over the other categories from ReadingApp.jsx
-const analysisItems = ra_analysisTopicLinks.map((item) => ({
+// 2. Map over the other categories from the new data file
+const analysisItems = analysisTopicLinks.map((item) => ({
   ...item,
-  project: 'Reading App',
+  project: 'Individual Case',
   projectPathPrefix: '/reading-app/',
   type: 'analysis_topic',
 }));
 
-const techDesignItems = ra_techDesignLinks.map((item) => ({
+const techDesignItems = techDesignLinks.map((item) => ({
   ...item,
-  project: 'Reading App',
+  project: 'Individual Case',
   projectPathPrefix: '/reading-app/',
   type: 'tech_design_topic',
 }));
 
-const managementItems = ra_projectManagementLinks.map((item) => ({
+const managementItems = projectManagementLinks.map((item) => ({
   ...item,
-  project: 'Reading App',
+  project: 'Individual Case',
   projectPathPrefix: '/reading-app/',
   type: 'management_topic',
 }));
 
-const proDevItems = ra_professionalDevelopmentLinks.map((item) => ({
+const proDevItems = professionalDevelopmentLinks.map((item) => ({
   ...item,
-  project: 'Reading App',
+  project: 'Individual Case',
   projectPathPrefix: '/reading-app/',
   type: 'pro_dev_topic',
 }));
@@ -78,12 +75,12 @@ const proDevItems = ra_professionalDevelopmentLinks.map((item) => ({
 // 3. Add the standalone implementation item
 const implementationItem = {
   ...readingAppImplementationDetails,
-  project: 'Reading App',
+  project: 'Individual Case',
   projectPathPrefix: '/reading-app/',
   type: 'implementation_main',
 };
 
-// 4. Combine all reading app items into one array
+// 4. Combine all Individual Case items into one array
 const readingAppItems = [
   ...featureItems,
   ...analysisItems,

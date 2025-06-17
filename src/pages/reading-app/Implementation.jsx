@@ -4,6 +4,13 @@ import swiftuiLogo from '../../assets/swiftui.png';
 import demoVideo from '../../assets/videos/demo_video.mp4';
 import xcodeLogo from '../../assets/xcode.png';
 
+export const implementationData = {
+  label: 'Development & Deployment Details',
+  description:
+    'Exploring the coding process, challenges, and deployment journey for the Individual Case.',
+  learningOutcomes: ['Realisation', 'Design', 'Professional Skills'],
+};
+
 const Implementation = () => {
   return (
     <div className="p-6 bg-background min-h-screen">

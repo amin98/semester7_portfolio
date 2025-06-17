@@ -18,7 +18,7 @@ export default {
         dark: '#343a40',
         textPrimary: '#0a0b0d',
         textSecondary: '#0a0b0d',
-        background: '#ffffff', // You might want to name this 'white' or similar if 'background' conflicts/is confusing
+        background: '#ffffff',
         palette: {
           softLight: '#E7ECEF',
           deepBlue: '#274C77',
